@@ -79,7 +79,7 @@ const StarRating = ({ rating }: { rating: number }) => {
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
     <div className="relative h-full">
-      {/* User Avatar - Positioned at the top, half outside the card */}
+      {/* Avatar */}
       <div className="flex justify-center">
         <div className="relative z-10 h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-lg">
           <Image
@@ -92,24 +92,20 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         </div>
       </div>
 
-      {/* Card Content */}
+      {/* Card */}
       <div className="-mt-16 rounded-[2rem] bg-white px-5 pb-5 pt-20 shadow-md">
-        {/* User Name */}
         <h3 className="mb-10 text-center text-base font-semibold text-[#27272A]">
           {testimonial.name}
         </h3>
 
-        {/* Star Rating */}
         <div className="mb-6">
           <StarRating rating={testimonial.rating} />
         </div>
 
-        {/* Review Text */}
         <p className="mb-8 text-center text-base leading-[100%] text-[#27272A]">
           {testimonial.review}
         </p>
 
-        {/* Date */}
         <p className="text-center text-sm text-gray-400">{testimonial.date}</p>
       </div>
     </div>
@@ -117,20 +113,25 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 };
 
 export default function Testimonials() {
-  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
+  const autoplay = useRef(
+    Autoplay({
+      delay: 3000,
+      stopOnInteraction: true,
+    }),
+  );
 
   return (
     <section className="my-10 w-full bg-[#FBEAEA] p-10">
       <div className="container mx-auto px-4">
         <Carousel
-          plugins={[plugin.current]}
+          plugins={[autoplay.current]}
           className="mx-auto w-full max-w-7xl"
           opts={{
             align: 'start',
             loop: true,
           }}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
+          onMouseEnter={() => autoplay.current.stop()}
+          onMouseLeave={() => autoplay.current.reset()}
         >
           <CarouselContent className="-ml-1">
             {testimonials.map((testimonial) => (
@@ -144,6 +145,7 @@ export default function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
+
           <CarouselPrevious className="h-10 w-10" />
           <CarouselNext className="h-10 w-10" />
         </Carousel>
