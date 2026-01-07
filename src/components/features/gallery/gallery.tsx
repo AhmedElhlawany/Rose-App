@@ -4,9 +4,15 @@ import React from 'react';
 const Gallery = () => {
   return (
     <div className="container mx-auto p-20">
-      <div className="grid grid-cols-12 grid-rows-[repeat(12,_3.75rem)] gap-3">
+      <div className="mb-11 text-center">
+        <h1 className="text-softPink-500 mb-2 font-bold">Gallery</h1>
+        <h2 className="text-maroon-700 text-4xl font-bold">
+          Check Out our Wonderful Gallery
+        </h2>
+      </div>
+      <div className="grid grid-cols-12 grid-rows-[repeat(10,_6.5rem)] gap-3">
         {/* image 1 */}
-        <div className="relative col-span-4 row-span-8">
+        <div className="relative col-span-4 row-span-6">
           <Image
             src="/grid1.svg"
             alt="4 presents wedding, birthday, anniversary, graduation"
@@ -36,7 +42,7 @@ const Gallery = () => {
         </div>
 
         {/* image 4 */}
-        <div className="relative col-span-4 row-span-4 row-start-9">
+        <div className="relative col-span-4 col-start-1 row-span-4 row-start-7">
           <Image
             src="/grid4.svg"
             alt="flower bouquet and box of chocolate heart shape"
@@ -46,7 +52,7 @@ const Gallery = () => {
         </div>
 
         {/* image 5 */}
-        <div className="relative col-span-4 col-start-5 row-span-8 row-start-5">
+        <div className="relative col-span-4 col-start-5 row-span-6 row-start-5">
           <Image
             src="/grid5.svg"
             alt="engagement ring in middle of bouquet of white flowers"
@@ -56,7 +62,7 @@ const Gallery = () => {
         </div>
 
         {/* image 6 */}
-        <div className="relative col-span-4 col-start-9 row-span-8 row-start-5">
+        <div className="relative col-span-4 col-start-9 row-span-6 row-start-5">
           <Image
             src="/grid6.svg"
             alt="engagement ring with white engagement card gift"

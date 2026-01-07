@@ -51,10 +51,11 @@ const About = () => {
 
         {/* Text */}
         <div className="flex flex-col">
-          <h1 className="text-base font-bold">About</h1>
-          <h2 className="mb-1 text-3xl font-bold">
-            Delivering the <span>Finest</span> Gift Boxes for Your{' '}
-            <span>Special</span> Moments
+          <h1 className="text-softPink-500 mb-6 font-bold">About</h1>
+          <h2 className="text-maroon-700 mb-1 text-3xl font-bold">
+            Delivering the <span className="text-softPink-500">Finest</span>{' '}
+            Gift Boxes for Your{' '}
+            <span className="text-softPink-500">Special</span> Moments
           </h2>
           <p>
             Make every moment memorable with our premium gift boxes. Carefully
@@ -64,14 +65,14 @@ const About = () => {
             leave a lasting impression — because thoughtful gifting starts here.
           </p>
           <Link href="/products">
-            <Button className="my-6 w-32 uppercase">
+            <Button className="bg-maroon-600 hover:bg-maroon-700 my-6 w-32 rounded-xl uppercase">
               discover <ArrowRight />
             </Button>
           </Link>
           <ul className="grid grid-cols-2 gap-4">
             {features.map((feature) => (
               <li key={feature} className="flex gap-4">
-                <Check />
+                <Check className="text-maroon-700" />
                 {feature}
               </li>
             ))}
