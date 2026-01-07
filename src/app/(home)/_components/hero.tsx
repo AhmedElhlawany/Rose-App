@@ -17,7 +17,7 @@ export default function Hero() {
     router.push('/product');
   };
   return (
-    <main className="mx-auto flex w-full flex-col items-center justify-center gap-6 bg-red-300 px-10 pb-6 pt-10 sm:px-20 lg:flex lg:flex-row lg:items-center lg:justify-between">
+    <main className="mx-auto flex w-full flex-col items-center justify-center gap-6  px-10 pb-6 pt-10 sm:px-20 lg:flex lg:flex-row lg:items-center lg:justify-between">
       {/* Static Image */}
       <figure className="relative h-full max-h-[27.5rem] w-full flex-1 lg:max-w-[18.8125rem]">
         <Image

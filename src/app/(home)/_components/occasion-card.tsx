@@ -1,0 +1,49 @@
+import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utility/tailwind-merge';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
+export default function OccasionCard({
+  img,
+  alt,
+  text,
+  badge,
+  width,
+}: {
+  img: string;
+  alt: string;
+  text: string;
+  badge: string;
+  width: string;
+}) {
+  return (
+    <Link href={'/product'}>
+      <figure
+        className={cn(
+          'relative w-full overflow-hidden rounded-2xl',
+          "after:pointer-events-none after:absolute after:inset-0 after:z-10 after:rounded-2xl after:bg-gradient-to-l after:from-black after:via-transparent after:to-transparent after:opacity-50 after:content-['']",
+        )}
+      >
+        <Image
+          src={img}
+          width={410}
+          height={271}
+          alt={alt}
+          className="w-full rounded-2xl"
+        />
+        <figcaption className="absolute bottom-0 z-20 flex flex-col gap-2 p-6">
+          <Badge
+            style={{ width: width }}
+            className={`rounded-full bg-[#FBEAEA] px-2 text-xs font-medium capitalize text-[#A6252A]`}
+          >
+            {badge}
+          </Badge>
+          <p className="text-sm font-semibold text-white sm:text-xl xl:w-[22.625rem] xl:text-2xl">
+            {text}
+          </p>
+        </figcaption>
+      </figure>
+    </Link>
+  );
+}
