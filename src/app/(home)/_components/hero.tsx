@@ -1,9 +1,21 @@
+"use client"
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import HeroCarousel from './hero-carousel';
+import { heroSlider } from '@/lib/constants/hero-slider-image';
+import { useRouter } from 'next/navigation';
+
 export default function Hero() {
+  // Navigation
+  const router = useRouter();
+
+  // Function
+  const goToProductPage = () => {
+    router.push('/product');
+  };
   return (
     <main className="mx-auto flex w-full flex-col items-center justify-center gap-6 bg-red-300 px-10 pb-6 pt-10 sm:px-20 lg:flex lg:flex-row lg:items-center lg:justify-between">
       {/* Static Image */}
@@ -26,11 +38,19 @@ export default function Hero() {
           <p className="h-20 w-full max-w-64 text-2xl font-semibold capitalize">
             special gifts for the people you love
           </p>
-          <Button className="flex w-full max-w-32 items-center justify-center gap-[.375rem] rounded-xl bg-amber-300 px-4 py-2 text-base font-normal capitalize text-[#741C21]">
+          <Button
+            onClick={goToProductPage}
+            className="flex w-full max-w-32 items-center justify-center gap-[.375rem] rounded-xl bg-amber-300 px-4 py-2 text-base font-normal capitalize text-[#741C21]"
+          >
             shop now <ArrowRight size={16} />
           </Button>
         </figcaption>
       </figure>
+
+      {/* Carousel */}
+      <div className="w-full flex-1 ">
+        <HeroCarousel slides={heroSlider} options={{ loop: false }} />
+      </div>
     </main>
   );
 }
