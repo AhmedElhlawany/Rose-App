@@ -31,6 +31,7 @@ export default function OccasionCard({
           height={271}
           alt={alt}
           className="w-full rounded-2xl"
+          priority
         />
         <figcaption className="absolute bottom-0 z-20 flex flex-col gap-2 p-6">
           <Badge
@@ -39,7 +40,7 @@ export default function OccasionCard({
           >
             {badge}
           </Badge>
-          <p className="text-sm font-semibold text-white sm:text-xl xl:w-[22.625rem] xl:text-2xl">
+          <p className="text-sm font-semibold text-white sm:text-xl xl:text-xl 2xl:w-[22.625rem] 2xl:text-2xl">
             {text}
           </p>
         </figcaption>

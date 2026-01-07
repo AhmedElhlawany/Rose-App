@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
@@ -17,7 +17,7 @@ export default function Hero() {
     router.push('/product');
   };
   return (
-    <main className="mx-auto flex w-full flex-col items-center justify-center gap-6  px-10 pb-6 pt-10 sm:px-20 lg:flex lg:flex-row lg:items-center lg:justify-between">
+    <section className="mx-auto flex w-full flex-col items-center justify-center gap-6 px-10 pb-6 pt-10 sm:px-20 lg:flex lg:flex-row lg:items-center lg:justify-between">
       {/* Static Image */}
       <figure className="relative h-full max-h-[27.5rem] w-full flex-1 lg:max-w-[18.8125rem]">
         <Image
@@ -25,6 +25,7 @@ export default function Hero() {
           width={301}
           height={440}
           alt="gift"
+          priority
           className="h-full max-h-[27.5rem] w-full rounded-2xl"
         />
         <figcaption className="absolute bottom-0 flex flex-col gap-[.625rem] pb-6 pl-6 text-white">
@@ -48,9 +49,9 @@ export default function Hero() {
       </figure>
 
       {/* Carousel */}
-      <div className="w-full flex-1 ">
+      <div className="w-full flex-1">
         <HeroCarousel slides={heroSlider} options={{ loop: false }} />
       </div>
-    </main>
+    </section>
   );
 }
