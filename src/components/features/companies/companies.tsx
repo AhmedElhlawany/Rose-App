@@ -5,18 +5,11 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import { companiesList } from '@/lib/constants/companiesList';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import { useRef } from 'react';
 
-const companiesList = [
-  { src: '/coconut.svg', alt: 'coconut' },
-  { src: '/ginyard.svg', alt: 'ginyard' },
-  { src: '/lingoude.svg', alt: 'lingoude' },
-  { src: '/velvet.svg', alt: 'velvet' },
-  { src: '/ingoude.svg', alt: 'ingoude' },
-  { src: '/habus.svg', alt: 'habus' },
-];
 
 const Companies = () => {
   const autoplay = useRef(
@@ -26,10 +19,11 @@ const Companies = () => {
   );
 
   return (
-    <div className="container mx-auto p-20">
-      <div className="bg-maroon-50 flex min-h-52 flex-col justify-center gap-5 rounded-3xl">
-        <p className="text-center text-maroon-700 py-3 text-4xl font-bold">
-          Trusted by over <span className='text-softPink-500'>4.5k+</span> companies
+    <section className="container mx-auto w-11/12 py-10">
+      <div className="flex min-h-52 flex-col justify-center gap-5 rounded-3xl bg-maroon-50">
+        <p className="py-3 text-center text-4xl font-bold text-maroon-700">
+          Trusted by over <span className="text-softPink-500">4.5k+</span>{' '}
+          companies
         </p>
 
         <Carousel
@@ -55,7 +49,7 @@ const Companies = () => {
           </CarouselContent>
         </Carousel>
       </div>
-    </div>
+    </section>
   );
 };
 

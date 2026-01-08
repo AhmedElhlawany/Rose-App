@@ -3,12 +3,12 @@ import React from 'react';
 
 const Gallery = () => {
   return (
-    <div className="container mx-auto p-20">
+    <section className="container mx-auto w-11/12 py-10">
       <div className="mb-11 text-center">
-        <h1 className="text-softPink-500 mb-2 font-bold">Gallery</h1>
-        <h2 className="text-maroon-700 text-4xl font-bold">
+        <h2 className="mb-2 font-bold text-softPink-500">Gallery</h2>
+        <h3 className="text-4xl font-bold text-maroon-700">
           Check Out our Wonderful Gallery
-        </h2>
+        </h3>
       </div>
       <div className="grid grid-cols-12 grid-rows-[repeat(10,_6.5rem)] gap-3">
         {/* image 1 */}
@@ -71,7 +71,7 @@ const Gallery = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
