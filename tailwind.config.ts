@@ -9,7 +9,15 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-  		colors: {
+			colors: {
+				maroon: {
+					'50': 'hsl(0 68% 95%)',
+					'600': 'hsl(358 64% 40%)',
+					'700': 'hsl(357 61% 28%)',
+				},
+				softPink: {
+					'500': 'hsl(345 100% 70%)',
+				},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
