@@ -33,7 +33,7 @@ export default function Hero() {
         <figcaption className="absolute bottom-0 flex flex-col gap-[.625rem] pb-6 pl-6 text-white">
           <Badge
             variant={'secondary'}
-            className="w-full max-w-[8.75rem] py-[.125rem] pl-1 text-xs font-medium text-[#A6252A] first-letter:uppercase"
+            className="w-full max-w-[8.75rem] bg-[#FBEAEA] rounded-full py-[.125rem] pl-2 text-xs font-medium text-[#A6252A] first-letter:uppercase"
           >
             Staring from 10.99 EGP
           </Badge>
