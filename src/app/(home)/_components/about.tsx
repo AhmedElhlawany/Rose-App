@@ -1,11 +1,10 @@
-"use client"
+'use client';
 import Image from 'next/image';
 import React from 'react';
-import { Button } from '../../ui/button';
+import { Button } from '../../../components/ui/button';
 import { ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
 import { aboutServices } from '@/lib/constants/about-services';
-
 
 const About = () => {
   return (

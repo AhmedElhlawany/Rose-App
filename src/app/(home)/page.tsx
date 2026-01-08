@@ -1,6 +1,6 @@
-import About from '@/components/features/about/about';
-import Companies from '@/components/features/companies/companies';
-import Gallery from '@/components/features/gallery/gallery';
+import About from '@/app/(home)/_components/about';
+import Companies from '@/app/(home)/_components/companies';
+import Gallery from '@/app/(home)/_components/gallery';
 
 export default function Home() {
   return (
