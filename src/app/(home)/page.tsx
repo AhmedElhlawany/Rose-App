@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* Hero Service */}
       <section className="w-full px-10 pb-28 sm:px-20">
-        <div className="grid grid-cols-1 rounded-2xl bg-[#FBEAEA] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 rounded-2xl bg-[#FBEAEA] dark:bg-zinc-700 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {heroService.map((service) => (
             <HeroService
               key={service.id}
@@ -34,6 +34,7 @@ export default function Home() {
               alt={service.alt}
               text={service.text}
               title={service.title}
+              imgDark={service.imgDark}
             />
           ))}
         </div>

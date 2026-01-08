@@ -28,6 +28,8 @@ export default function Hero() {
           priority
           className="h-full max-h-[27.5rem] w-full rounded-2xl"
         />
+
+        {/* Caption For Image */}
         <figcaption className="absolute bottom-0 flex flex-col gap-[.625rem] pb-6 pl-6 text-white">
           <Badge
             variant={'secondary'}
@@ -41,7 +43,7 @@ export default function Hero() {
           </p>
           <Button
             onClick={goToProductPage}
-            className="flex w-full max-w-32 items-center justify-center gap-[.375rem] rounded-xl bg-amber-300 px-4 py-2 text-base font-normal capitalize text-[#741C21]"
+            className="flex w-full max-w-32 items-center justify-center gap-[.375rem] rounded-xl bg-[#FBEAEA] px-4 py-2 text-base font-normal capitalize text-[#741C21]"
           >
             shop now <ArrowRight size={16} />
           </Button>

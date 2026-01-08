@@ -78,7 +78,7 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
         </span>
         <Button
           onClick={goToProductPage}
-          className="mb-9 w-32 rounded-lg bg-yellow-200 px-4 py-2 text-[#741C21]"
+          className="mb-9 w-32 rounded-lg bg-[#FBEAEA] font-normal px-4 py-2 text-[#741C21]"
         >
           I’m buying!
         </Button>
