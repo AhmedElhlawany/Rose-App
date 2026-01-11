@@ -12,8 +12,11 @@ const config: Config = {
   	extend: {
   		colors: {
 			maroon: {
-          600: '#A6252A', 
+				700: '#741C21',
+          		600: '#A6252A',
 		  		500: '#CD2E33',
+		  		100: '#F3C5C7',
+				50:'#FBEAEA'
        			 },
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

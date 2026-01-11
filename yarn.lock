@@ -920,7 +920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-slot@npm:1.2.4":
+"@radix-ui/react-slot@npm:1.2.4, @radix-ui/react-slot@npm:^1.2.4":
   version: 1.2.4
   resolution: "@radix-ui/react-slot@npm:1.2.4"
   dependencies:
@@ -5649,6 +5649,7 @@ __metadata:
   resolution: "rose-app@workspace:."
   dependencies:
     "@radix-ui/react-label": "npm:^2.1.8"
+    "@radix-ui/react-slot": "npm:^1.2.4"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
