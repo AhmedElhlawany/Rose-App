@@ -79,6 +79,7 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
         </span>
         <Button
           onClick={goToProductPage}
+          // TODO Waiting for the design system
           className="mb-9 w-32 rounded-xl bg-[#FBEAEA] px-4 py-2 text-base font-normal text-[#741C21]"
         >
           I’m buying!
@@ -101,6 +102,7 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
           <DotButton
             key={index}
             onClick={() => onDotButtonClick(index)}
+            // TODO Waiting for the design system
             className={`h-2 w-2 rounded-full ${
               index === selectedIndex ? 'h-2 w-9 bg-[#A6252A]' : 'bg-[#FBEAEA]'
             }`}

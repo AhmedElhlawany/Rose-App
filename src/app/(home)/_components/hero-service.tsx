@@ -44,6 +44,7 @@ export default function HeroService({
         <p className="text-lg font-semibold capitalize text-[#A6252A] dark:text-[#FFC2D0] sm:text-xl">
           {title}
         </p>
+
         <span className="text-center text-sm font-normal text-[#71717A] dark:text-zinc-300">
           {text}
         </span>

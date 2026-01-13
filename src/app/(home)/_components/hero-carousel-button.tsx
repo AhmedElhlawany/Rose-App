@@ -83,6 +83,7 @@ export const PrevButton: React.FC<PropType> = ({
 }) => {
   return (
     <Button
+      // TODO Waiting for the design system
       variant="carousel"
       size={'default'}
       disabled={disabled}

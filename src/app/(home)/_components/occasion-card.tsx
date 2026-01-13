@@ -34,6 +34,7 @@ export default function OccasionCard({
       <figcaption className="absolute bottom-0 z-20 flex flex-col gap-2 p-6">
         <Badge
           style={{ width: width }}
+            // TODO Waiting for the design system
           className={`rounded-full bg-[#FBEAEA] px-2 text-xs font-medium capitalize text-[#A6252A]`}
         >
           {badge}
