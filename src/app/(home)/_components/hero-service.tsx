@@ -17,7 +17,7 @@ export default function HeroService({
   return (
     <div className="flex flex-col items-center justify-center gap-2 px-10 py-10 sm:mx-0 lg:flex lg:flex-row lg:items-center lg:justify-center lg:gap-4">
       {/* Image Part */}
-      <figure className="flex size-14 shrink-0 items-center justify-center rounded-[2.0313rem] bg-[#A6252A] dark:bg-[#FFC2D0]">
+      <figure className="flex size-14 shrink-0 items-center justify-center rounded-full bg-[#A6252A] dark:bg-[#FFC2D0]">
         {/*Image In Light Mode */}
         <Image
           src={img}

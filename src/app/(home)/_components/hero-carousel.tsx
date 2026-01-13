@@ -87,7 +87,7 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
       </div>
 
       {/* Buttons */}
-      <div className="absolute bottom-8 right-8 mt-4 hidden h-[2.1875rem] w-[4.625rem] items-center justify-center rounded-full bg-[#FBEAEA] px-4 sm:flex">
+      <div className="absolute bottom-8 right-8 mt-4 hidden h-9 w-20 items-center justify-center rounded-full bg-[#FBEAEA] px-4 sm:flex">
         <PrevButton
           onClick={onPrevButtonClick}
           disabled={prevBtnDisabled}
