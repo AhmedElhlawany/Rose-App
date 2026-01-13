@@ -103,9 +103,10 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
             key={index}
             onClick={() => onDotButtonClick(index)}
             // TODO Waiting for the design system
-            className={`h-2 w-2 rounded-full ${
-              index === selectedIndex ? 'h-2 w-9 bg-[#A6252A]' : 'bg-[#FBEAEA]'
-            }`}
+            className={cn(
+              'h-2 w-2 rounded-full',
+              index === selectedIndex ? 'w-9 bg-[#A6252A]' : 'bg-[#FBEAEA]',
+            )}
           />
         ))}
       </div>
