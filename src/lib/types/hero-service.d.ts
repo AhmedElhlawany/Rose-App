@@ -1,7 +1,7 @@
+import { LucideIcon } from 'lucide-react';
+
 export interface HeroService {
-  img: string;
-  imgDark: string;
-  alt: string;
+  Icon: LucideIcon;
   id: number;
   title: string;
   text: string;
