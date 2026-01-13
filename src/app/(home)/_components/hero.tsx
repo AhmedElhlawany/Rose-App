@@ -34,9 +34,11 @@ export default function Hero() {
           <Badge
             variant={'secondary'}
             // TODO Waiting for the design system
-            className="w-full max-w-[8.75rem] rounded-full bg-[#FBEAEA] py-[.125rem] pl-2 text-xs font-medium text-[#A6252A] first-letter:uppercase"
+            className="w-full max-w-[8.75rem] rounded-full bg-[#FBEAEA] py-[.125rem] pl-2 text-xs font-medium text-[#A6252A]"
           >
-            Staring from 10.99 EGP
+            <span className="first-letter:uppercase">
+              staring from 10.99 EGP
+            </span>
           </Badge>
 
           <p className="h-20 w-full max-w-64 text-2xl font-semibold capitalize">
