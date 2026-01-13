@@ -40,6 +40,7 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
   const goToProductPage = () => {
     router.push('/product');
   };
+
   return (
     <section
       className={cn(
@@ -78,14 +79,14 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
         </span>
         <Button
           onClick={goToProductPage}
-          className="mb-9 w-32 rounded-xl bg-[#FBEAEA] text-base font-normal px-4 py-2 text-[#741C21]"
+          className="mb-9 w-32 rounded-xl bg-[#FBEAEA] px-4 py-2 text-base font-normal text-[#741C21]"
         >
           I’m buying!
         </Button>
       </div>
 
       {/* Buttons */}
-      <div className="absolute bottom-8 right-8 mt-4 hidden h-[2.1875rem] w-[4.625rem]  px-4 items-center justify-center rounded-full bg-[#FBEAEA] sm:flex">
+      <div className="absolute bottom-8 right-8 mt-4 hidden h-[2.1875rem] w-[4.625rem] items-center justify-center rounded-full bg-[#FBEAEA] px-4 sm:flex">
         <PrevButton
           onClick={onPrevButtonClick}
           disabled={prevBtnDisabled}
