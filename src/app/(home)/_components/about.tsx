@@ -9,7 +9,7 @@ import { aboutServices } from '@/lib/constants/about-services';
 /**
  * About section component with gift images and service features
  */
-const About = () => {
+export default function About() {
   return (
     <section className="container mx-auto w-11/12 py-10">
       <div className="grid w-full items-center gap-8 md:grid-cols-2">
@@ -85,5 +85,3 @@ const About = () => {
     </section>
   );
 };
-
-export default About;

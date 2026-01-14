@@ -4,7 +4,7 @@ import React from 'react';
 /**
  * Gallery section displaying gift box images in a masonry-style grid layout
  */
-const Gallery = () => {
+export default function Gallery() {
   return (
     <section className="container mx-auto w-11/12 py-10">
       {/* Section header */}
@@ -81,4 +81,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+
