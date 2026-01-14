@@ -6,16 +6,19 @@ import { ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
 import { aboutServices } from '@/lib/constants/about-services';
 
+/**
+ * About section component with gift images and service features
+ */
 const About = () => {
   return (
     <section className="container mx-auto w-11/12 py-10">
       <div className="grid w-full items-center gap-8 md:grid-cols-2">
-        {/*Images */}
+        {/* Image gallery */}
         <div className="flex gap-8">
+          {/* Main image with decorative border */}
           <div className="relative before:pointer-events-none before:absolute before:left-0 before:-z-10 before:h-[22.5rem] before:w-[16.875rem] before:rotate-3 before:rounded-[3.125rem_7.5rem_7.5rem_7.5rem] before:border-4 before:border-maroon-600 before:content-['']">
-            {/* main Images */}
             <Image
-              src="/violet-gift.svg"
+              src="/images/violet-gift.svg"
               alt="unwrapping violet gift"
               width={302}
               height={336}
@@ -23,17 +26,17 @@ const About = () => {
             />
           </div>
 
-          {/* Side Images */}
+          {/* Side images */}
           <div className="flex flex-col items-center gap-2">
             <Image
-              src="/orange-gift.svg"
+              src="/images/orange-gift.svg"
               alt="orange gift"
               width={192}
               height={192}
               className="h-48 w-48 rounded-[9.375rem] object-cover"
             />
             <Image
-              src="/blue-gift.svg"
+              src="/images/blue-gift.svg"
               alt="blue gift with balloons"
               width={192}
               height={144}
@@ -42,7 +45,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Text */}
+        {/* Content section */}
         <div className="flex flex-col">
           <h2 className="mb-6 font-bold text-softPink-500">About</h2>
           <h3 className="mb-1 text-3xl font-bold text-maroon-700">
@@ -53,10 +56,12 @@ const About = () => {
           <p>
             Make every moment memorable with our premium gift boxes. Carefully
             curated and beautifully packaged, each box is filled with handpicked
-            items designed to impress. Whether it&apos;s for a birthday,
-            wedding, or a simple “thank you,” our gift boxes are crafted to
-            leave a lasting impression — because thoughtful gifting starts here.
+            items designed to impress. Whether it&apos;s for a birthday, wedding, or
+            a simple “thank you,” our gift boxes are crafted to leave a lasting
+            impression — because thoughtful gifting starts here.
           </p>
+
+          {/* Discover button */}
           <Button
             asChild
             className="my-6 w-32 rounded-xl bg-maroon-600 uppercase hover:bg-maroon-700"
@@ -65,6 +70,8 @@ const About = () => {
               discover <ArrowRight aria-hidden="true" />
             </Link>
           </Button>
+
+          {/* Service features list */}
           <ul aria-label="Service features" className="grid grid-cols-2 gap-4">
             {aboutServices.map((service) => (
               <li key={service} className="flex gap-4">

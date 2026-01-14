@@ -1,4 +1,6 @@
-
+/**
+ * Service features displayed in the About section
+ */
 export const aboutServices = [
   'Competitive Prices & Easy Shopping',
   'Premium Quality & Elegant Packaging',
