@@ -6,10 +6,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { FaStar, FaRegStar, FaCommentDots } from 'react-icons/fa';
+import { FaStar, FaRegStar } from 'react-icons/fa';
 import { useRef } from 'react';
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
+import { useTranslations, useLocale } from 'next-intl';
 
 interface Testimonial {
   id: number;
@@ -19,45 +20,6 @@ interface Testimonial {
   review: string;
   date: string;
 }
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: 'Jake Miller',
-    image: '/avatar/avatar1.png',
-    rating: 4,
-    review:
-      "I've been ordering from this flower shop for years and they never disappoint. The quality and service are exceptional!",
-    date: 'January 12, 2025',
-  },
-  {
-    id: 2,
-    name: 'Tyler Brooks',
-    image: '/avatar/avatar2.png',
-    rating: 3,
-    review:
-      "Customer service is top-notch and the flowers last longer than any others I've bought. Highly recommend!",
-    date: 'January 12, 2025',
-  },
-  {
-    id: 3,
-    name: 'Max Turner',
-    image: '/avatar/avatar3.png',
-    rating: 4,
-    review:
-      'The team truly cares about every order. I always feel confident when I buy flowers from here. The checkout process was sup...',
-    date: 'January 12, 2025',
-  },
-  {
-    id: 4,
-    name: 'Lisa Anderson',
-    image: '/avatar/avatar1.png',
-    rating: 5,
-    review:
-      'Amazing quality and beautiful presentation! Every bouquet I receive is absolutely stunning. The delivery is always on time and the flowers stay fresh for so long!',
-    date: 'January 10, 2025',
-  },
-];
 
 const StarRating = ({ rating }: { rating: number }) => {
   return (
@@ -92,27 +54,17 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
       </div>
 
       {/* Card */}
-      <div className="relative -mt-16 rounded-[2rem] bg-white px-5 pb-5 pt-20 shadow-md transition-shadow duration-300 hover:shadow-lg">
-        {/* Chat Icon Watermark in corner */}
-        <div className="absolute right-3 top-3 opacity-10 lg:right-5 lg:top-5">
-          <FaCommentDots className="h-6 w-6 text-gray-700 transition-all duration-300 hover:text-gray-900 lg:h-12 lg:w-12" />
-        </div>
-
+      <div className="relative -mt-16 rounded-[32px] bg-white px-5 pb-5 pt-20 shadow-md transition-shadow duration-300 hover:shadow-lg">
         <h3 className="text-center text-base font-semibold text-[#27272A]">
           {testimonial.name}
         </h3>
-
-        {/* Role: Customer */}
-        <p className="mb-4 text-center text-sm font-medium text-gray-500 lg:mb-8">
-          Customer
-        </p>
 
         <div className="mb-4 lg:mb-6">
           <StarRating rating={testimonial.rating} />
         </div>
 
         <p
-          className="mb-4 line-clamp-3 text-center text-base leading-[100%] text-[#27272A] lg:mb-8"
+          className="mb-4 line-clamp-3 pb-2 text-center text-base leading-[100%] text-[#27272A] lg:mb-8"
           title={testimonial.review}
         >
           {testimonial.review}
@@ -124,7 +76,46 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   );
 };
 
-export default function Testimonials() {
+export default function TestimonialsCarousel() {
+  const t = useTranslations('testimonials');
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+
+  const testimonials: Testimonial[] = [
+    {
+      id: 1,
+      name: t('reviews.0.name'),
+      image: '/avatar/avatar1.png',
+      rating: 4,
+      review: t('reviews.0.review'),
+      date: t('reviews.0.date'),
+    },
+    {
+      id: 2,
+      name: t('reviews.1.name'),
+      image: '/avatar/avatar2.png',
+      rating: 3,
+      review: t('reviews.1.review'),
+      date: t('reviews.1.date'),
+    },
+    {
+      id: 3,
+      name: t('reviews.2.name'),
+      image: '/avatar/avatar3.png',
+      rating: 4,
+      review: t('reviews.2.review'),
+      date: t('reviews.2.date'),
+    },
+    {
+      id: 4,
+      name: t('reviews.3.name'),
+      image: '/avatar/avatar1.png',
+      rating: 5,
+      review: t('reviews.3.review'),
+      date: t('reviews.3.date'),
+    },
+  ];
+
   const plugin = useRef(
     Autoplay({
       delay: 2000,
@@ -143,6 +134,7 @@ export default function Testimonials() {
           opts={{
             align: 'start',
             loop: true,
+            direction: isRTL ? 'rtl' : 'ltr',
           }}
           onMouseEnter={() => plugin.current.stop()}
           onMouseLeave={() => plugin.current.play()}
