@@ -12,12 +12,32 @@ const config: Config = {
   	extend: {
   		colors: {
 			maroon: {
+				950: '#20090c',
+				900: '#2c0c10',
+				800: '#501419',
 				700: '#741C21',
-          		600: '#A6252A',
-		  		500: '#CD2E33',
-		  		100: '#F3C5C7',
+				600: '#A6252A',
+				500: '#CD2E33',
+				400: '#d75458',
+				300: '#e07a7d',
+				200: '#ea9fa2',
+				100: '#F3C5C7',
 				50:'#FBEAEA'
-       			 },
+				 },
+		 softpink: {
+					950: '590414',
+					900: '#99102c',
+					800: '#b32443',
+					700: '#cc3a5b',
+					600: '#e65073',
+					500: '#ff668b',
+					400: '#FF85A2',
+					300: '#FFA3B9',
+					200: '#ffc2d0',
+					100: '#ffe0e7',
+					50: 'fff1f5'
+				 },
+				 
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

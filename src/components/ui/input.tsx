@@ -39,7 +39,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           className={cn(
             /* ================= Base ================= */
-            "flex h-12 w-80 rounded-md text-zinc-800 border-2 bg-transparent p-4 text-base transition-colors md:text-sm",
+            "flex h-12 w-80 rounded-md text-zinc-800 border-2 border-zinc-600 bg-transparent p-4 text-base transition-colors md:text-sm dark:bg-zinc-700 dark:border-zinc-600 dark:hover:border-zinc-500 dark:text-zinc-400 dark:focus:border-softpink-400 ",
 
             /* ================= Default ================= */
             "border-zinc-300 placeholder:text-muted-foreground",
