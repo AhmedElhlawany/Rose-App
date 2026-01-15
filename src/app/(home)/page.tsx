@@ -1,6 +1,9 @@
+import FileUpload from "@/components/ui/input-file";
 
 
 export default function Home() {
 
-  return <></>
+  return <>
+<FileUpload></FileUpload>
+  </>
 }
