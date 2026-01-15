@@ -7,7 +7,7 @@ const DELETE_SINGLE_NOTIFICATION= (notificationId: string) =>
     `https://flower.elevateegy.com/api/v1/notifications/${notificationId}`;
 
 export async function deleteSingleNotificationAction(notificationId: string) {
-  // get token
+  //token
   const token = await getToken();
   // Guard
   if (!token?.accessToken) {
