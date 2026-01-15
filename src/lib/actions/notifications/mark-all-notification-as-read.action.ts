@@ -1,8 +1,9 @@
 "use server";
 
-import { JSON_HEADER } from "@/lib/constants/json-header.constant";
-import { NOTIFICATIONS } from "@/lib/services/apis/protected-apis/notifications-apis.api";
-import { getToken } from "@/lib/utils/manage-token";
+import { JSON_HEADER } from "@/lib/constant/api.constant";
+import { getToken } from "@/lib/utility/manage-token";
+
+const   MARK_ALL_NOTIFICATIONS_AS_READ=`https://flower.elevateegy.com/api/v1/notifications/mark-all-read`;
 
 export async function markAllNotificationsAsReadAction() {
   // get token
@@ -16,7 +17,7 @@ export async function markAllNotificationsAsReadAction() {
   }
 
   const resp = await fetch(
-    `${process.env.BASE_URL}${NOTIFICATIONS.MARK_ALL_NOTIFICATIONS_AS_READ}`,
+    MARK_ALL_NOTIFICATIONS_AS_READ,
 
     {
       method: "POST",
