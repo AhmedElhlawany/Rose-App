@@ -8,6 +8,7 @@ export default function page() {
         heading="Testimonials"
         paragraph="Real Words from Happy Customers"
       />
+
       <TestimonialsCarousel />
     </div>
   );
