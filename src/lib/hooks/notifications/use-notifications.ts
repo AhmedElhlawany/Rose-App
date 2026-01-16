@@ -12,7 +12,6 @@ export function useNotifications() {
   // { This prevents 401 Unauthorized requests }
   const isAuthed = status === "authenticated";
   // ToDo
-  // const isAdmine = session?.user?.role === "admin";
   // Infinite notifications query 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
