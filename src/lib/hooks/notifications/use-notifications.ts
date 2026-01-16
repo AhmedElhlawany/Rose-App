@@ -1,23 +1,25 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { fetchNotificationsAction } from "../_actions/fetch-notifications.action";
-import { Notifications } from "@/lib/types/notifications";
-import { useSession } from "next-auth/react";
+import { fetchNotificationsAction } from '@/lib/actions/notifications/fetch-notifications.action';
+import { Notifications } from '@/lib/types/notification';
+import { useInfiniteQuery } from '@tanstack/react-query';
+// import { useSession } from "next-auth/react";
 
 export function useNotifications() {
-  // { Session state from NextAuth }
-  const { status, data: session } = useSession();
+  // ToDo
+  // Session state from NextAuth 
+  // const { status, data: session } = useSession();
 
-  // { Query should run only when user is authenticated }
+  
   // { This prevents 401 Unauthorized requests }
   const isAuthed = status === "authenticated";
-  const isAdmine = session?.user?.role === "admin";
-  // { Infinite notifications query }
+  // ToDo
+  // const isAdmine = session?.user?.role === "admin";
+  // Infinite notifications query 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
-      // { Cache key for notifications }
+      // Cache key for notifications 
       queryKey: ["notifications"],
 
-      // { Fetch notifications page by page }
+      // Fetch notifications page by page 
       queryFn: async ({ pageParam }) => {
         // { Call notifications API with pagination }
         const payload: APIResponse<PaginatedResponse<Notifications>> =
@@ -53,7 +55,7 @@ export function useNotifications() {
       },
 
       // { Stop fetching when user is not authenticated }
-      enabled: isAuthed && isAdmine,
+      enabled: isAuthed ,
 
       // { Disable automatic retries to avoid repeated 401 errors }
       retry: false,
