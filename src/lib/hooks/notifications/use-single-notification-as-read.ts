@@ -1,7 +1,7 @@
+import { markSingleNotificationsAsReadAction } from "@/lib/actions/notifications/mark-single-notification-as-read.action";
+import { MarkNotificationAsReadResponse } from "@/lib/types/notification";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { markSingleNotificationsAsReadAction } from "../_actions/mark-single-notification-as-read.action";
 import { toast } from "sonner";
-import { MarkNotificationAsReadResponse } from "@/lib/types/notifications";
 
 export function useSingleNotificationAsRead() {
   const queryClient = useQueryClient();

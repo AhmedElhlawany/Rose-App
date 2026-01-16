@@ -1,7 +1,7 @@
+import { deleteAllNotificationAction } from "@/lib/actions/notifications/delete-all-notifications.action";
+import { DeleteNotificationResponse } from "@/lib/types/notification";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { DeleteNotificationResponse } from "@/lib/types/notifications";
-import { deleteAllNotificationAction } from "../_actions/delete-all-notifications.action";
 
 export function useDeleteAllNotifications() {
   const queryClient = useQueryClient();

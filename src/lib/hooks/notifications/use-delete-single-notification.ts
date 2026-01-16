@@ -1,7 +1,7 @@
+import { deleteSingleNotificationAction } from "@/lib/actions/notifications/delete-single-notification.action";
+import { DeleteNotificationResponse } from "@/lib/types/notification";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { deleteSingleNotificationAction } from "../_actions/delete-single-notification.action";
-import { DeleteNotificationResponse } from "@/lib/types/notifications";
 
 export function useDeleteSingleNotification() {
   const queryClient = useQueryClient();

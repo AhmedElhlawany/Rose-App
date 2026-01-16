@@ -41,6 +41,7 @@ const RAW_RUNTIME_STATE =
           ["init", "npm:0.1.2"],\
           ["lucide-react", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:0.562.0"],\
           ["next", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:14.2.35"],\
+          ["next-themes", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:0.4.6"],\
           ["postcss", "npm:8.5.6"],\
           ["prettier", "npm:3.7.4"],\
           ["prettier-plugin-tailwindcss", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:0.7.2"],\
@@ -49,6 +50,7 @@ const RAW_RUNTIME_STATE =
           ["react-infinite-scroll-component", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:6.1.1"],\
           ["rose-app", "workspace:."],\
           ["shadcn", "npm:3.6.3"],\
+          ["sonner", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:2.0.7"],\
           ["tailwind-merge", "npm:3.4.0"],\
           ["tailwindcss", "npm:3.4.19"],\
           ["tailwindcss-animate", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:1.0.7"],\
@@ -6581,6 +6583,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["next-themes", [\
+      ["npm:0.4.6", {\
+        "packageLocation": "../../../../C:/Users/User/AppData/Local/Yarn/Berry/cache/next-themes-npm-0.4.6-7c480d5b1d-10c0.zip/node_modules/next-themes/",\
+        "packageDependencies": [\
+          ["next-themes", "npm:0.4.6"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:0.4.6", {\
+        "packageLocation": "./.yarn/__virtual__/next-themes-virtual-83ff8e4f4d/5/C:/Users/User/AppData/Local/Yarn/Berry/cache/next-themes-npm-0.4.6-7c480d5b1d-10c0.zip/node_modules/next-themes/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:18.3.27"],\
+          ["@types/react-dom", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:18.3.7"],\
+          ["next-themes", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:0.4.6"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["node-domexception", [\
       ["npm:1.0.0", {\
         "packageLocation": "../../../../C:/Users/User/AppData/Local/Yarn/Berry/cache/node-domexception-npm-1.0.0-e1e813b76f-10c0.zip/node_modules/node-domexception/",\
@@ -7838,6 +7866,7 @@ const RAW_RUNTIME_STATE =
           ["init", "npm:0.1.2"],\
           ["lucide-react", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:0.562.0"],\
           ["next", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:14.2.35"],\
+          ["next-themes", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:0.4.6"],\
           ["postcss", "npm:8.5.6"],\
           ["prettier", "npm:3.7.4"],\
           ["prettier-plugin-tailwindcss", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:0.7.2"],\
@@ -7846,6 +7875,7 @@ const RAW_RUNTIME_STATE =
           ["react-infinite-scroll-component", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:6.1.1"],\
           ["rose-app", "workspace:."],\
           ["shadcn", "npm:3.6.3"],\
+          ["sonner", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:2.0.7"],\
           ["tailwind-merge", "npm:3.4.0"],\
           ["tailwindcss", "npm:3.4.19"],\
           ["tailwindcss-animate", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:1.0.7"],\
@@ -8208,6 +8238,32 @@ const RAW_RUNTIME_STATE =
           ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.4.3"],\
           ["socks", "npm:2.8.7"],\
           ["socks-proxy-agent", "npm:8.0.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["sonner", [\
+      ["npm:2.0.7", {\
+        "packageLocation": "../../../../C:/Users/User/AppData/Local/Yarn/Berry/cache/sonner-npm-2.0.7-20113ef6ac-10c0.zip/node_modules/sonner/",\
+        "packageDependencies": [\
+          ["sonner", "npm:2.0.7"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:2.0.7", {\
+        "packageLocation": "./.yarn/__virtual__/sonner-virtual-21b4881ebb/5/C:/Users/User/AppData/Local/Yarn/Berry/cache/sonner-npm-2.0.7-20113ef6ac-10c0.zip/node_modules/sonner/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:18.3.27"],\
+          ["@types/react-dom", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:18.3.7"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:18.3.1"],\
+          ["sonner", "virtual:7483d66df31732bd5229ea1f807eb180ded998d7afdbf7b609870b6e74c4cd0bb10469fb823e3f9739b3780ccb9a4969301821a398be1f15a9f8a5213d4d7c53#npm:2.0.7"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
