@@ -1,6 +1,10 @@
+import NotificationsList from "@/components/features/notifications/notification-list";
 
 
 export default function Home() {
 
-  return <></>;
+  return <>
+  {/* To Display */}
+  <NotificationsList/>
+  </>;
 }
