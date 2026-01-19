@@ -36,7 +36,7 @@ export default function FileUpload() {
        <Upload/> Upload file
       </Button>
 
-      {/* اسم الملف */}
+   
     
     </div>
   )
