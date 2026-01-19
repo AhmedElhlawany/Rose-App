@@ -1,45 +1,47 @@
-//^^==> to get token to use in mutation in server actions
+// ToDo after next auth
 
-import { decode, encode, JWT } from "next-auth/jwt";
-import { cookies } from "next/headers";
+// //^^==> to get token to use in mutation in server actions
 
-const cookieName =
-  process.env.NODE_ENV === "production"
-    ? "__Secure-next-auth.session-token"
-    : "next-auth.session-token";
+// import { decode, encode, JWT } from "next-auth/jwt";
+// import { cookies } from "next/headers";
 
-export async function getToken() {
-  const tokenCookie = cookies().get(cookieName)?.value;
+// const cookieName =
+//   process.env.NODE_ENV === "production"
+//     ? "__Secure-next-auth.session-token"
+//     : "next-auth.session-token";
 
-  try {
-    const jwt = await decode({
-      token: tokenCookie,
-      secret: process.env.NEXTAUTH_SECRET!,
-    });
+// export async function getToken() {
+//   const tokenCookie = cookies().get(cookieName)?.value;
 
-    return jwt;
-  } catch (error) {
-    console.error("Error decoding token", error);
+//   try {
+//     const jwt = await decode({
+//       token: tokenCookie,
+//       secret: process.env.NEXTAUTH_SECRET!,
+//     });
 
-    return null;
-  }
-}
+//     return jwt;
+//   } catch (error) {
+//     console.error("Error decoding token", error);
 
-// =====================================================================================================================
-//^^==>set Token Manually
-export async function setToken(token: JWT) {
-  const encodedToken = await encode({
-    token,
-    secret: process.env.NEXTAUTH_SECRET!,
-    maxAge: 60 * 60 * 24 * 7,
-  });
+//     return null;
+//   }
+// }
 
-  cookies().set(cookieName, encodedToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    maxAge: 1000 * 60 * 60 * 24 * 7,
-    path: "/",
-    sameSite: "lax",
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-  });
-}
+// // =====================================================================================================================
+// //^^==>set Token Manually
+// export async function setToken(token: JWT) {
+//   const encodedToken = await encode({
+//     token,
+//     secret: process.env.NEXTAUTH_SECRET!,
+//     maxAge: 60 * 60 * 24 * 7,
+//   });
+
+//   cookies().set(cookieName, encodedToken, {
+//     httpOnly: true,
+//     secure: process.env.NODE_ENV === "production",
+//     maxAge: 1000 * 60 * 60 * 24 * 7,
+//     path: "/",
+//     sameSite: "lax",
+//     expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+//   });
+// }

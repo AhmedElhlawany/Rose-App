@@ -3,8 +3,9 @@ import { type NextRequest } from "next/server";
 // ToDo
 // import { getToken } from "next-auth/jwt";
 
+
 const GET_NOTIFICATIONS = (pageNumber: number, limit: number) =>
-    `/notifications/user?page=${pageNumber}&limit=${limit}`
+    `https://flower.elevateegy.com/api/v1/notifications/user?page=${pageNumber}&limit=${limit}`
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -31,11 +32,11 @@ export async function GET(request: NextRequest) {
 //   }
 
   const resp = await fetch(
-    GET_NOTIFICATIONS(limit,page),
+    GET_NOTIFICATIONS(page,limit),
     {
       headers: {
         ...JSON_HEADER,
-        Authorization: `Bearer ${"accessToken"}`,
+        Authorization: `Bearer ${"Token"}`,
       },
       next: {
         tags: ["user-notifications"],

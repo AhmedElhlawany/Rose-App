@@ -64,19 +64,17 @@ export default function NotificationItem({
         "flex items-start max-w-[21rem] justify-between py-2 px-2 rounded-none border-t border-b border-zinc-300 dark:border-zinc-600"
       )}
     >
-      {/* ✅ Use header/content grouping for semantics */}
       <header className="notification-content max-w-[80%]">
         <h3 className="font-semibold text-lg text-zinc-800 dark:text-zinc-50">
           {notification.title}
         </h3>
 
-        {/* ✅ Paragraph is already semantic; keep as-is */}
         <p className="text-sm text-zinc-500 line-clamp-3 dark:text-zinc-400">
           {notification.body}
         </p>
       </header>
 
-      {/* ✅ Actions grouped in a nav landmark */}
+      {/* ✅ Actions grouped */}
       <nav className="notification-action" aria-label="Notification actions">
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>

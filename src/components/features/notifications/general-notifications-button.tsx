@@ -1,4 +1,5 @@
 "use client";
+
 import { BrushCleaning, CheckCheck, Loader } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utility/tailwind-merge";
@@ -12,9 +13,12 @@ type GeneralNotificationsButtonsProps = {
 export default function GeneralNotificationsButtons({
   isEmpty,
 }: GeneralNotificationsButtonsProps) {
+
+  // Mutation
   // mark all notifications as read
   const { onMarkAllAsRead, isPending: markReadIsPending } =
     useAllNotificationsAsRead();
+
   // clear all notifications button
   const { onDeleteAll, isPending: deleteAllIsPending } =
     useDeleteAllNotifications();
