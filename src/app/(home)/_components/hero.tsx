@@ -21,7 +21,7 @@ export default function Hero() {
       {/* Static Image */}
       <figure className="relative h-full max-h-[27.5rem] w-full flex-1 lg:max-w-[18.8125rem]">
         <Image
-          src={'/images/gift.png'}
+          src={'/assets/images/gift.png'}
           width={301}
           height={440}
           alt="gift"
@@ -33,8 +33,7 @@ export default function Hero() {
         <figcaption className="absolute bottom-0 flex flex-col gap-3 pb-6 pl-6 text-white">
           <Badge
             variant={'secondary'}
-            // TODO Waiting for the design system
-            className="w-full max-w-[8.75rem] rounded-full bg-[#FBEAEA] py-[.125rem] pl-2 text-xs font-medium text-[#A6252A]"
+            className="w-fit rounded-full py-[.125rem] pl-2 text-xs font-medium dark:bg-maroon-50 dark:hover:bg-maroon-100"
           >
             <span className="first-letter:uppercase">
               staring from 10.99 EGP
@@ -45,9 +44,9 @@ export default function Hero() {
             special gifts for the people you love
           </p>
           <Button
+            variant={'secondary'}
             onClick={goToProductPage}
-            // TODO Waiting for the design system
-            className="flex w-full max-w-32 items-center justify-center gap-1 rounded-xl bg-[#FBEAEA] px-4 py-2 text-base font-normal capitalize text-[#741C21]"
+            className="flex w-full max-w-32 items-center justify-center gap-1 rounded-xl px-4 py-2 text-base font-normal capitalize dark:bg-maroon-50 dark:hover:bg-maroon-100"
           >
             shop now <ArrowRight size={16} />
           </Button>

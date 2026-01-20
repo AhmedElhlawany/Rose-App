@@ -79,15 +79,15 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
         </span>
         <Button
           onClick={goToProductPage}
-          // TODO Waiting for the design system
-          className="mb-9 w-32 rounded-xl bg-[#FBEAEA] px-4 py-2 text-base font-normal text-[#741C21]"
+          variant={'secondary'}
+          className="mb-9 w-32 rounded-xl px-4 py-2 text-base font-normal dark:bg-maroon-50 dark:hover:bg-maroon-100"
         >
           I’m buying!
         </Button>
       </div>
 
       {/* Buttons */}
-      <div className="absolute bottom-8 right-8 mt-4 hidden h-9 w-20 items-center justify-center rounded-full bg-[#FBEAEA] px-4 sm:flex">
+      <div className="absolute bottom-8 right-8 mt-4 hidden h-9 w-20 items-center justify-center rounded-full bg-maroon-50 px-4 sm:flex">
         <PrevButton
           onClick={onPrevButtonClick}
           disabled={prevBtnDisabled}
@@ -105,7 +105,7 @@ const HeroCarousel: React.FC<PropType> = ({ slides, options }) => {
             // TODO Waiting for the design system
             className={cn(
               'h-2 w-2 rounded-full',
-              index === selectedIndex ? 'w-9 bg-[#A6252A]' : 'bg-[#FBEAEA]',
+              index === selectedIndex ? 'w-9 bg-maroon-600' : 'bg-maroon-50',
             )}
           />
         ))}

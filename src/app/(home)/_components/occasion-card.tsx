@@ -8,13 +8,11 @@ export default function OccasionCard({
   alt,
   text,
   badge,
-  width,
 }: {
   img: string;
   alt: string;
   text: string;
   badge: string;
-  width: string;
 }) {
   return (
     <figure
@@ -33,9 +31,8 @@ export default function OccasionCard({
       />
       <figcaption className="absolute bottom-0 z-20 flex flex-col gap-2 p-6">
         <Badge
-          style={{ width: width }}
-            // TODO Waiting for the design system
-          className={`rounded-full bg-[#FBEAEA] px-2 text-xs font-medium capitalize text-[#A6252A]`}
+          variant={'secondary'}
+          className={`w-fit rounded-full px-2 text-xs font-medium capitalize dark:bg-maroon-50 dark:hover:bg-maroon-100`}
         >
           {badge}
         </Badge>

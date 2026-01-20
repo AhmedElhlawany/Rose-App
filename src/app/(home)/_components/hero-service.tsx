@@ -14,7 +14,7 @@ export default function HeroService({
   return (
     <div className="flex flex-col items-center justify-center gap-2 px-4 py-10 sm:mx-0 lg:flex lg:flex-row lg:items-center lg:justify-center lg:gap-4">
       {/* Image Part */}
-      <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-[#A6252A] dark:bg-[#FFC2D0]">
+      <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-maroon-600 dark:bg-softpink-200">
         {/* Icon */}
         <Icon className="block size-10 text-white dark:text-black" />
       </div>
