@@ -14,7 +14,7 @@ export default function FileUpload() {
       <input
         type="file"
         ref={fileInputRef}
-        className="hidden"
+        className="hidden "
         onChange={(e) => {
           if (e.target.files && e.target.files.length > 0) {
             setFileName(e.target.files[0].name)
@@ -24,7 +24,7 @@ export default function FileUpload() {
  
       
       <Button variant="Subtle"
-      className="bg-transparent !text-end ps-36 !pe-0 w-64 relative text-maroon-600"
+      className="bg-transparent !text-end ps-48 !pe-0  relative text-maroon-600  h-12 w-80 rounded-lg  border-2    text-base transition-colors md:text-sm dark:bg-zinc-700 dark:border-zinc-600 dark:hover:border-zinc-500 dark:text-zinc-400 dark:focus:border-softpink-400"
         type="button"
         onClick={() => fileInputRef.current?.click()}
       >

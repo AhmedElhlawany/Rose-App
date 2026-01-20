@@ -39,7 +39,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           className={cn(
             /* ================= Base ================= */
-            "flex h-12 w-80 rounded-md text-zinc-800 border-2 border-zinc-600 bg-transparent p-4 text-base transition-colors md:text-sm dark:bg-zinc-700 dark:border-zinc-600 dark:hover:border-zinc-500 dark:text-zinc-400 dark:focus:border-softpink-400 ",
+            "flex h-12 w-80 rounded-lg text-zinc-800 border border-zinc-300 bg-transparent p-4 text-base transition-colors md:text-sm dark:bg-zinc-700 dark:border-zinc-600 dark:hover:border-zinc-500 dark:text-zinc-400 dark:focus:border-softpink-400 ",
 
             /* ================= Default ================= */
             "border-zinc-300 placeholder:text-muted-foreground",
@@ -84,6 +84,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className
           )}
           {...props}
+          placeholder="text"
         />
         {variant === "search" && <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-400" />}
         {variant === "tel" && <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-950">EG (+20)</span>}
