@@ -64,22 +64,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        disabled={isLoading || props.disabled}
         {...props}
-      >
-        {/* If loading, show the spinner next to the text */}
-        {isLoading ? (
-          <>
-            {children}
-            <Loader2 className="ml-2 h-4 w-4 animate-spin opacity-80" />
-          </>
-        ) : (
-          children
-        )}
-      </Comp>
-    );
-  },
-);
-Button.displayName = 'Button';
+      />
+    )
+  }
+)
+Button.displayName = "Button"
 
-export { Button, buttonVariants };
+export { Button, buttonVariants }
