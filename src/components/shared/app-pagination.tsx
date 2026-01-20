@@ -276,19 +276,21 @@ export default function AppPagination({
         </PaginationItem>
 
         {/* Pages + ellipsis */}
-        {items.map((it, idx) =>
-          it === 'ellipsis' ? (
-            <PaginationItem key={`el-${idx}`}>
+        {items.map((item, index) =>
+          item === 'ellipsis' ? (
+            <PaginationItem key={`el-${index}`}>
               <PaginationEllipsis className="px-2 text-zinc-500 dark:text-zinc-400" />
             </PaginationItem>
           ) : (
-            <PaginationItem key={it}>
+            <PaginationItem key={item}>
               <PaginationLink
                 asChild
-                isActive={it === currentPage}
-                className={pageBtn(it === currentPage)}
+                isActive={item === currentPage}
+                className={pageBtn(item === currentPage)}
               >
-                <Link href={createHref(pathname, searchParams, it)}>{it}</Link>
+                <Link href={createHref(pathname, searchParams, item)}>
+                  {item}
+                </Link>
               </PaginationLink>
             </PaginationItem>
           ),
