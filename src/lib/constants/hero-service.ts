@@ -5,25 +5,25 @@ export const heroService: HeroService[] = [
   {
     id: 1,
     Icon: Truck,
-    text: 'For orders above 120 EGP',
-    title: 'free delivery',
+    text: 'free-delivery.text',
+    title: 'free-delivery.title',
   },
   {
     id: 2,
     Icon: RefreshCw,
-    text: 'Refunds within 30 days',
-    title: 'get refund',
+    text: 'refund.text',
+    title: 'refund.title',
   },
   {
     id: 3,
     Icon: ShieldCheck,
-    text: '100% Secure Payment',
-    title: 'safe payment',
+    text: 'secure-payment.text',
+    title: 'secure-payment.title',
   },
   {
     Icon: Headset,
     id: 4,
-    text: 'Contact us at any time',
-    title: '24/7 support',
+    text: 'support.text',
+    title: 'support.title',
   },
 ];

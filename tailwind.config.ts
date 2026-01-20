@@ -79,6 +79,10 @@ const config: Config = {
           '5': 'hsl(var(--chart-5))',
         },
       },
+      fontFamily: {
+        tajawal: ['var(--font-tajawal)'],
+         sarabun: ['var(--font-sarabun)'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
