@@ -46,13 +46,12 @@ export default function ForgotPasswordForm() {
         </p>
       </div>
 
-      {/*form Part  */}
-
+      {/*Form Part  */}
       <form
         onSubmit={handleSubmit(onsubmit)}
         className="flex flex-col justify-center"
       >
-        {/* email section */}
+        {/* Email Section */}
         <TextField
           label="forget-password.form.email.label"
           placeholder="forget-password.form.email.placeholder"
