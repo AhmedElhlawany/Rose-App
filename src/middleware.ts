@@ -1,16 +1,26 @@
-import createMiddleware from 'next-intl/middleware';
-import { routing } from './i18n/routing';
-import { NextRequest } from 'next/server';
+import { getToken } from "next-auth/jwt";
+import { NextRequest, NextResponse } from "next/server";
 
-export default async function middleware(request: NextRequest) {
-  // your logic
-  const response = createMiddleware(routing)(request);
-  return response;
+const authPages = new Set (['/login','/register','/forgot-password'])
+
+export default async function middleware(req: NextRequest) {
+    const {pathname} = req.nextUrl;
+    const token = await getToken({req});
+
+if (!authPages.has(pathname)) {
+    if (token) return NextResponse.next();
+    const redirectUrl = new URL('/login', req.nextUrl.origin);
+    redirectUrl.searchParams.set('callbackUrl', pathname);
+    return NextResponse.redirect(redirectUrl);
+}
+
+if (!token) return NextResponse.next();
+return NextResponse.redirect(new URL('/', req.nextUrl.origin));
+
+
+
 }
 
 export const config = {
-  // Match all pathnames except for
-  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-  // - … the ones containing a dot (e.g. `favicon.ico`)
-  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
-};
+    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+}

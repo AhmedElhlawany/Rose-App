@@ -4068,7 +4068,7 @@ next-intl-swc-plugin-extractor@^4.7.0:
 
 next-intl@^4.7.0:
   version "4.7.0"
-  resolved "https://registry.npmjs.org/next-intl/-/next-intl-4.7.0.tgz#65fe996caeae4825180f3860e35bdec96ae1d7e2"
+  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-4.7.0.tgz#65fe996caeae4825180f3860e35bdec96ae1d7e2"
   integrity sha512-gvROzcNr/HM0jTzQlKWQxUNk8jrZ0bREz+bht3wNbv+uzlZ5Kn3J+m+viosub18QJ72S08UJnVK50PXWcUvwpQ==
   dependencies:
     "@formatjs/intl-localematcher" "^0.5.4"
