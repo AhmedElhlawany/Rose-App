@@ -24,7 +24,7 @@ export default function PasswordField<T extends FieldValues>({
   placeholder,
 }: PasswordFieldProps<T>) {
   // Translation
-  const t = useTranslations('Auth');
+  const t = useTranslations('auth');
 
   // Hook
   const locale = useLocale();
@@ -50,7 +50,7 @@ export default function PasswordField<T extends FieldValues>({
             {...register(name)}
             placeholder={placeholder}
             type={cn(toggle ? 'password' : 'text')}
-            className="placeholder:text-zinc-400"
+            className="w-full text-black placeholder:text-zinc-400"
           />
           {/* Toggle Password Button */}
           <div>
@@ -59,7 +59,7 @@ export default function PasswordField<T extends FieldValues>({
               onClick={HandleToggle}
               type="button"
               className={cn(
-                'absolute top-1/2 -translate-y-1/2',
+                'absolute top-1/2 size-5 -translate-y-1/2',
                 locale === 'ar' ? 'left-0' : 'right-0',
               )}
             >

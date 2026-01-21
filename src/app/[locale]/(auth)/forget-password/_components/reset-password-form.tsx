@@ -20,7 +20,7 @@ export default function ResetPasswordForm() {
   // Function
   const onsubmit = () => {};
   return (
-    <section className="lg:max-w-auth mx-auto flex min-h-screen w-full flex-col justify-center gap-6 px-6 sm:w-[70%] lg:px-0">
+    <section className="lg:max-w-auth mx-auto flex min-h-screen w-full max-w-[25.375rem] flex-col justify-center gap-6 px-6 sm:w-[70%] lg:px-0">
       {/* Title Part */}
       <div className="flex flex-col border-b-[.0625rem] border-zinc-200">
         <h1 className="text-xl font-semibold first-letter:uppercase sm:text-2xl">
