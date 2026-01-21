@@ -1,9 +1,71 @@
-import React from 'react'
+import React from 'react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import SubmitError from '@/components/error/submit-error';
+import { Button } from '@/components/ui/button';
 
-export default function SubmitButton() {
+interface SubmitButtonProps {
+  error: Error | null;
+  text: string;
+  title?: string;
+  isValid: boolean;
+  isSubmitting: boolean;
+  isPending: boolean;
+  link?: string;
+}
+export default function SubmitButton({
+  error,
+  text,
+  title,
+  isValid,
+  isSubmitting,
+  isPending,
+  link,
+}: SubmitButtonProps) {
+  // Translation
+  const t = useTranslations('Auth');
+
   return (
-    <div>
-      
+    <div className="flex flex-col gap-6 pt-9">
+      {/* Error */}
+      {error && (
+        <div className="">
+          <SubmitError errors={error} />
+        </div>
+      )}
+
+      {/* Button */}
+      <div className="">
+        <Button
+          variant={'secondary'}
+          disabled={isPending || (!isValid && isSubmitting)}
+          className="w-full rounded-xl py-3"
+        >
+          {t(text)}
+        </Button>
+
+        {/* Optional Title */}
+        {title && (
+          <div className="mt-9 text-center">
+            <p className="border-t-[.0625rem] border-zinc-200 pt-5 text-center text-sm font-medium text-zinc-800 first-letter:capitalize">
+              {t.rich(title, {
+                span: (chunk) =>
+                  link ? (
+                    <Link href={link}>
+                      <span className="text-sm font-bold text-maroon-700">
+                        {chunk}
+                      </span>
+                    </Link>
+                  ) : (
+                    <span className="text-sm font-bold text-maroon-700">
+                      {chunk}
+                    </span>
+                  ),
+              })}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
-  )
+  );
 }
