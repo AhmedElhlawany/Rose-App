@@ -54,7 +54,9 @@ export default function LocaleLayout({
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <body className={` ${sarabun.variable} ${tajawal.variable} antialiased`}>
+      <body
+        className={` ${locale === 'ar' ? tajawal.className : sarabun.className} antialiased [@media(min-width:1920px)]:container [@media(min-width:1920px)]:mx-auto`}
+      >
         <Providers>
           <Header />
           {children}
