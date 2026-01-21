@@ -1,0 +1,69 @@
+{
+  "title": "Rose App",
+  "testimonials": {
+    "heading": "What Our Customers Say",
+    "customer": "Customer",
+    "reviews": [
+      {
+        "name": "Jake Miller",
+        "review": "I've been ordering from this flower shop for years and they never disappoint. The quality and service are exceptional!",
+        "date": "January 12, 2025"
+      },
+      {
+        "name": "Tyler Brooks",
+        "review": "Customer service is top-notch and the flowers last longer than any others I've bought. Highly recommend!",
+        "date": "January 12, 2025"
+      },
+      {
+        "name": "Max Turner",
+        "review": "The team truly cares about every order. I always feel confident when I buy flowers from here. The checkout process was sup...",
+        "date": "January 12, 2025"
+      },
+      {
+        "name": "Lisa Anderson",
+        "review": "Amazing quality and beautiful presentation! Every bouquet I receive is absolutely stunning. The delivery is always on time and the flowers stay fresh for so long!",
+        "date": "January 10, 2025"
+      }
+    ]
+  },
+    "hero": {
+      "static-image": {
+        "button": " shop now"
+      },
+      "special-gift": "special gifts for the people you love",
+      "gift-price": "Staring from 10.99 EGP",
+      "carousel-button": "I’m buying!",
+      "carousel-subtitle": "Elegant gifts for every special moment.",
+      "carousel-title": "say it with flowers",
+      "free-delivery": {
+        "title": "Free delivery",
+        "text": "For orders above 120 EGP"
+      },
+      "refund": {
+        "title": "Get refund",
+        "text": "Refunds within 30 days"
+      },
+      "secure-payment": {
+        "title": "Safe payment",
+        "text": "100% Secure Payment"
+      },
+      "support": {
+        "title": "24/7 support",
+        "text": "Contact us at any time"
+      },
+      "occasion": {
+        "wedding": {
+          "text": "Celebrate Her Forever with a Gift She’ll Always Remember",
+          "badge": "wedding"
+        },
+        "engagement": {
+          "text": "Honor the Beginning of a Beautiful Journey Together",
+          "badge": "engagement"
+        },
+        "anniversary": {
+          "text": "Mark Every Year of Love with a Meaningful Surprise",
+          "badge": "anniversary"
+        }
+      }
+    }
+}
