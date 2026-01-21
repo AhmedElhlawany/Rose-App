@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Locale } from 'next-intl';
 
+// Types
 type SearchParam = Record<string, string | string[] | undefined>;
 
 /**
@@ -21,20 +22,17 @@ type SearchParam = Record<string, string | string[] | undefined>;
  */
 type Props = {
   /**
-   * Current route pathname without query string.
-   * Example: "/products" or "/en/products"
+   * Example: "/products"
    */
   pathname: string;
 
   /**
    * Current search params object coming from a Server Component.
-   * All params (filters, limit, sort, etc.) will be preserved
-   * while only `page` gets updated.
    */
   searchParams: SearchParam;
 
   /**
-   * Currently active page (1-based index).
+   * Currently active page.
    */
   currentPage: number;
 
@@ -60,11 +58,8 @@ type Props = {
   show: boolean;
 
   /**
-   * Current application locale (from next-intl).
-   * Used to:
-   * - Detect RTL vs LTR
-   * - Swap icons direction
-   * - Localize aria-labels
+   * Current application locale.
+  
    */
   locale: Locale;
 };
@@ -78,13 +73,12 @@ type Props = {
  * @param page - Target page number (1-based).
  * @returns Full URL including updated query string.
  */
-function createHref(
-  pathname: string,
-  searchParams: Record<string, string | string[] | undefined>,
-  page: number,
-) {
-  const searchQuery = new URLSearchParams();
 
+// Variables
+const searchQuery = new URLSearchParams();
+
+// Functions
+function createHref(pathname: string, searchParams: SearchParam, page: number) {
   // Preserve all existing params (including array params)
   Object.entries(searchParams).forEach(([key, value]) => {
     if (value === undefined) return;
@@ -94,7 +88,7 @@ function createHref(
 
   // Update page param only
   searchQuery.set('page', String(page));
-
+  // paginated to same path with query search params
   return `${pathname}?${searchQuery.toString()}`;
 }
 
@@ -114,27 +108,19 @@ function createHref(
  */
 function getRange(current: number, total: number, windowSize: number) {
   if (total <= 1) return [];
-
   const first = 1;
   const last = total;
-
   const start = Math.max(first + 1, current - windowSize);
   const end = Math.min(last - 1, current + windowSize);
-
   const items: (number | 'ellipsis')[] = [];
-
   // Always show first page
   items.push(first);
-
   // Left ellipsis if needed
   if (start > first + 1) items.push('ellipsis');
-
   // Page window
   for (let p = start; p <= end; p++) items.push(p);
-
   // Right ellipsis if needed
   if (end < last - 1) items.push('ellipsis');
-
   // Always show last page
   if (last !== first) items.push(last);
 
@@ -171,9 +157,8 @@ function pageBtn(active: boolean) {
     'text-base font-medium',
     'transition-colors',
     active
-      ? 'bg-maroon-700 text-white border-maroon-700 hover:bg-maroon-700 hover:text-white'
-      : 'bg-white text-zinc-900 border-zinc-200 hover:bg-zinc-50',
-    'dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900',
+      ? 'bg-maroon-700 text-white border-maroon-700 hover:bg-maroon-700 dark:bg-soft-pink-200 dark:text-zinc-700'
+      : 'bg-white text-zinc-900 border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100',
   ].join(' ');
 }
 
@@ -210,7 +195,6 @@ function getLabels(locale: Locale) {
  * - Supports RTL (Arabic) and LTR (English).
  * - Accessible (aria-labels).
  * - Customizable window size.
- * - Styled according to design system (maroon active page).
  */
 export default function AppPagination({
   pathname,
@@ -224,6 +208,7 @@ export default function AppPagination({
   // Hide pagination if disabled or unnecessary
   if (!show || totalPages <= 1) return null;
 
+  // Variables
   const items = getRange(currentPage, totalPages, windowSize);
 
   // Edge detection
