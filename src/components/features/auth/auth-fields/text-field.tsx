@@ -41,7 +41,7 @@ export default function TextField<T extends FieldValues>({
         </Label>
 
         {/* Input */}
-        <Input {...register(name)} placeholder={t(placeholder)} type={type} className='w-full' />
+        <Input {...register(name)} placeholder={t(placeholder)} type={type} className='w-full placeholder:text-zinc-400 text-black' />
       </div>
 
       {/* Error */}

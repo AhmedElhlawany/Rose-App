@@ -1,6 +1,5 @@
 'use client';
 
-
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { UseForgot } from '../_hooks/use-forgot-password';
@@ -36,7 +35,7 @@ export default function ForgotPasswordForm() {
   };
 
   return (
-    <section className="lg:max-w-auth mx-auto flex min-h-screen w-full flex-col justify-center gap-6 px-6 sm:w-[70%] lg:px-0  max-w-[25.375rem]">
+    <section className="lg:max-w-auth mx-auto flex min-h-screen w-full max-w-[25.375rem] flex-col justify-center gap-6 px-6 sm:w-[70%] lg:px-0">
       {/* Title Part */}
       <div className="flex flex-col border-b-[.0625rem] border-zinc-200">
         <h1 className="text-xl font-semibold capitalize sm:text-2xl">
@@ -69,6 +68,7 @@ export default function ForgotPasswordForm() {
           isSubmitting={formState.isSubmitting}
           isValid={formState.isValid}
           isPending={isPending}
+          loading="forget-password.form.submit.loading"
           text="forget-password.form.submit.continue"
           title="forget-password.form.submit.no-account"
           link="/register"

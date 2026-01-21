@@ -12,6 +12,7 @@ interface SubmitButtonProps {
   isSubmitting: boolean;
   isPending: boolean;
   link?: string;
+  loading:string;
 }
 export default function SubmitButton({
   error,
@@ -21,6 +22,7 @@ export default function SubmitButton({
   isSubmitting,
   isPending,
   link,
+  loading,
 }: SubmitButtonProps) {
   // Translation
   const t = useTranslations('auth');
@@ -41,7 +43,7 @@ export default function SubmitButton({
           disabled={isPending || (!isValid && isSubmitting)}
           className="w-full rounded-xl py-5 text-base"
         >
-          {t(text)}
+              {isPending ? t(loading) :t(text)}
         </Button>
 
         {/* Optional Title */}

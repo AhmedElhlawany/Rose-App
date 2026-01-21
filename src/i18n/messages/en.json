@@ -77,7 +77,9 @@
         },
         "submit": {
           "continue": "Continue",
-          "no-account": "Don’t have an account yet?  <span> Create one now! </span>"
+          "no-account": "Don’t have an account yet?  <span> Create one now! </span>",
+          "loading":"Loading..."
+
         }
       }
     }
