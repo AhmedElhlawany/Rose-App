@@ -49,17 +49,17 @@ export default function SubmitButton({
         {/* Optional Title */}
         {title && (
           <div className="mt-9 text-center">
-            <p className="border-t-[.0625rem] border-zinc-200 pt-5 text-center text-sm font-medium text-zinc-800 first-letter:capitalize">
+            <p className="border-t-[.0625rem] border-zinc-200 pt-5 text-center text-sm font-medium text-zinc-800 dark:text-zinc-50 first-letter:capitalize">
               {t.rich(title, {
                 span: (chunk) =>
                   link ? (
                     <Link href={link}>
-                      <span className="text-sm font-bold text-maroon-700">
+                      <span className="text-sm font-bold text-maroon-700 dark:text-softpink-300">
                         {chunk}
                       </span>
                     </Link>
                   ) : (
-                    <span className="text-sm font-bold text-maroon-700">
+                    <span className="text-sm font-bold text-maroon-700 dark:text-softpink-300">
                       {chunk}
                     </span>
                   ),

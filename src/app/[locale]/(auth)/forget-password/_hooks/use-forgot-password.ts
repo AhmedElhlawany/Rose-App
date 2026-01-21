@@ -2,9 +2,13 @@ import { useRouter } from '@/i18n/navigation';
 import { ForgotPasswordFormFields } from '@/lib/schemas/forgot-password';
 import { forgetPassword } from '@/lib/services/forget-passord.service';
 import { useMutation } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
 export const UseForgot = ({ redirect = true }) => {
+  // Translation
+  const t = useTranslations('auth');
+
   // Navigation
   const router = useRouter();
 
@@ -24,7 +28,7 @@ export const UseForgot = ({ redirect = true }) => {
       return payload;
     },
     onSuccess: (_payload, variables) => {
-      toast.success(' OTP sent to your email');
+      toast.success(t('forget-password.forget-message'));
 
       // only redirect when allowed
       if (redirect) {

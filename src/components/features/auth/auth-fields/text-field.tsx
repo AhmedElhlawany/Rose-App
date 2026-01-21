@@ -36,12 +36,12 @@ export default function TextField<T extends FieldValues>({
     <>
       <div className="flex w-full flex-col ">
         {/* Label */}
-        <Label className="pb-1 text-sm font-medium capitalize text-zinc-800">
+        <Label className="pb-1 text-sm font-medium capitalize text-zinc-800 dark:text-zinc-50">
           {t(label)}
         </Label>
 
         {/* Input */}
-        <Input {...register(name)} placeholder={t(placeholder)} type={type} className='w-full placeholder:text-zinc-400 text-black' />
+        <Input {...register(name)} placeholder={t(placeholder)} type={type} className='w-full placeholder:text-zinc-400 text-black dark:text-zinc-50' />
       </div>
 
       {/* Error */}

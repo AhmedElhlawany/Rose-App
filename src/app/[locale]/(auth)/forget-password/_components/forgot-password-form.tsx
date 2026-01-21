@@ -38,10 +38,10 @@ export default function ForgotPasswordForm() {
     <section className="lg:max-w-auth mx-auto flex min-h-screen w-full max-w-[25.375rem] flex-col justify-center gap-6 px-6 sm:w-[70%] lg:px-0">
       {/* Title Part */}
       <div className="flex flex-col border-b-[.0625rem] border-zinc-200">
-        <h1 className="text-xl font-semibold capitalize sm:text-2xl">
+        <h1 className="text-xl font-semibold capitalize text-zinc-800 dark:text-zinc-50 sm:text-2xl">
           {t('forget-password.forgot-password')}
         </h1>
-        <p className="pb-3 text-sm font-normal text-zinc-800 first-letter:capitalize sm:text-base">
+        <p className="pb-3 text-sm font-normal text-zinc-800 first-letter:capitalize dark:text-zinc-50 sm:text-base">
           {t('forget-password.forget-text')}
         </p>
       </div>
