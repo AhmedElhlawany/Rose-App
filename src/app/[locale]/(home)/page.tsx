@@ -3,7 +3,7 @@ import Companies from '@/app/[locale]/(home)/_components/companies';
 import Gallery from '@/app/[locale]/(home)/_components/gallery';
 import TestimonialsCarousel from './_components/testimonials';
 import AppPagination from '@/components/shared/app-pagination';
-
+import { Input } from '@/components/ui/input';
 export default function Home({ params, searchParams }) {
   return (
     <>
@@ -11,7 +11,7 @@ export default function Home({ params, searchParams }) {
       <Gallery />
       <TestimonialsCarousel />
       <Companies />
-      {/* Pagination  Props Add Manually For Trial */}
+      {/* Pagination  Props Add Manually  to show in PR */}
       <AppPagination
         searchParams={searchParams}
         show={true}
@@ -20,6 +20,9 @@ export default function Home({ params, searchParams }) {
         locale="en"
         pathname="/"
       />
+
+      {/* Password-input to Show in PR */}
+      <Input type="password" />
     </>
   );
 }
