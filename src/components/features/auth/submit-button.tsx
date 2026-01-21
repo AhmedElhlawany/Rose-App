@@ -23,7 +23,7 @@ export default function SubmitButton({
   link,
 }: SubmitButtonProps) {
   // Translation
-  const t = useTranslations('Auth');
+  const t = useTranslations('auth');
 
   return (
     <div className="flex flex-col gap-6 pt-9">
@@ -37,9 +37,9 @@ export default function SubmitButton({
       {/* Button */}
       <div className="">
         <Button
-          variant={'secondary'}
+          variant={'primary'}
           disabled={isPending || (!isValid && isSubmitting)}
-          className="w-full rounded-xl py-3"
+          className="w-full rounded-xl py-5 text-base"
         >
           {t(text)}
         </Button>

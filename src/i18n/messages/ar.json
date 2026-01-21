@@ -65,5 +65,21 @@
         "badge": "ذكرى سنوية"
       }
     }
+  },
+  "auth": {
+    "forget-password": {
+      "forgot-password": "هل نسيت كلمة المرور؟",
+      "forget-text": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
+      "form": {
+        "email": {
+          "label": "البريد الإلكتروني",
+          "placeholder": "example@domain.com"
+        },
+        "submit": {
+          "continue": "استمر",
+          "no-account": "ليس لديك حساب بعد؟ <span>أنشئ واحدًا الآن!</span>"
+        }
+      }
+    }
   }
 }

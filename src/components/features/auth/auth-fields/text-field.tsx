@@ -30,18 +30,18 @@ export default function TextField<T extends FieldValues>({
   errors,
 }: EmailFieldProps<T>) {
   // Translation
-  const t = useTranslations('Auth');
+  const t = useTranslations('auth');
 
   return (
     <>
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col ">
         {/* Label */}
         <Label className="pb-1 text-sm font-medium capitalize text-zinc-800">
           {t(label)}
         </Label>
 
         {/* Input */}
-        <Input {...register(name)} placeholder={t(placeholder)} type={type} />
+        <Input {...register(name)} placeholder={t(placeholder)} type={type} className='w-full' />
       </div>
 
       {/* Error */}
