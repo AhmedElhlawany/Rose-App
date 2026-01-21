@@ -78,8 +78,21 @@
         "submit": {
           "continue": "Continue",
           "no-account": "Don’t have an account yet?  <span> Create one now! </span>",
-          "loading":"Loading..."
-
+          "loading": "Loading..."
+        }
+      }
+    },
+    "reset-password": {
+      "create-new-password": "create a new password",
+      "reset-text": "Set a strong password to secure your account.",
+      "form": {
+        "password": {
+          "old-password": "Password",
+          "new-password": "Confirm Password"
+        },
+        "submit": {
+          "reset": "Reset Password",
+          "contact": "Need help? <span> Contact us </span>"
         }
       }
     }

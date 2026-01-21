@@ -81,6 +81,20 @@
           "loading": "جاري التحميل..."
         }
       }
+    },
+    "reset-password": {
+      "form": {
+        "password": {
+          "old-password": "كلمة المرور",
+          "new-password": "تأكيد كلمة المرور"
+        },
+        "submit": {
+          "reset": "إعادة تعيين كلمة المرور",
+          "contact": "هل تحتاج مساعدة؟<span>تواصل معنا</span>"
+        }
+      },
+      "create-new-password": "إنشاء كلمة مرور جديدة",
+      "reset-text": "قم بتعيين كلمة مرور قوية لتأمين حسابك."
     }
   }
 }
