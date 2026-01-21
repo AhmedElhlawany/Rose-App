@@ -12,6 +12,7 @@ import {
 } from '@/lib/schemas/reset-password';
 import { ResetPasswordPayload } from '@/lib/types/auth/forget-password/reset';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useSearchParams } from 'next/navigation';
 
 export default function ResetPasswordForm() {
   // Treanslation
@@ -32,8 +33,8 @@ export default function ResetPasswordForm() {
 
   // !! To be handled by the flow owner when get search params from verfiy password componnent and delete static email
   // Const
-  const params = new URLSearchParams(location.search);
-  const email = params.get('email') || 'hadywahba19@gmail.com';
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email') || 'hadywahba19@gmail.com';
 
   // Function
   const onsubmit: SubmitHandler<ResetPasswordFormFields> = async (data) => {
