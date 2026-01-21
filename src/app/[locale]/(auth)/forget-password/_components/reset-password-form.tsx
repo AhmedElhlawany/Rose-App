@@ -33,8 +33,8 @@ export default function ResetPasswordForm() {
 
   // !! To be handled by the flow owner when get search params from verfiy password componnent and delete static email
   // Const
-  const searchParams = useSearchParams();
-  const email = searchParams.get('email') || 'hadywahba19@gmail.com';
+  const params = useSearchParams();
+  const email = params.get('email') || 'hadywahba19@gmail.com';
 
   // Function
   const onsubmit: SubmitHandler<ResetPasswordFormFields> = async (data) => {
