@@ -1,4 +1,4 @@
-import { useRouter } from '@/i18n/navigation';
+
 import { ForgotPasswordFormFields } from '@/lib/schemas/forgot-password';
 import { forgetPassword } from '@/lib/services/forget-passord.service';
 import { useMutation } from '@tanstack/react-query';
@@ -8,9 +8,9 @@ import { toast } from 'sonner';
 export const UseForgot = ({ redirect = true }) => {
   // Translation
   const t = useTranslations('auth');
-
+// ! To be handled by the flow owner
   // Navigation
-  const router = useRouter();
+  // const router = useRouter();
 
   // Mutation
   const {
@@ -27,12 +27,12 @@ export const UseForgot = ({ redirect = true }) => {
 
       return payload;
     },
-    onSuccess: (_payload, variables) => {
+    onSuccess: () => {
       toast.success(t('forget-password.forget-message'));
-
+// ! To be handled by the flow owner
       // only redirect when allowed
       if (redirect) {
-        router.push(`/forgot-password?step=2&email=${variables?.email}`);
+        // router.push(`/forgot-password?step=2&email=${variables?.email}`);
       }
     },
   });
