@@ -98,5 +98,15 @@
   },
   "companies": {
     "trustedBy": "Trusted by over <span></span> companies"
+  },
+  "auth": {
+    "verifyPassword": {
+      "title": "Enter the OTP Code",
+      "description": "We have sent a 6-digit code to user@example.com Edit",
+      "resendOtp": "Send a new code",
+      "submit": "Verify OTP",
+      "Contact": "Need help? <span>Contact us</span>",
+      "loading": "Verifying..."
+    }
   }
 }

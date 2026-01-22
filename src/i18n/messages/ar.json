@@ -93,5 +93,15 @@
   },
   "companies": {
     "trustedBy": "موثوق به من قبل أكثر من <span></span> شركة"
+  },
+  "auth": {
+    "verifyPassword": {
+      "title": "أدخل رمز التحقق",
+      "description": "لقد أرسلنا رمزًا مكوّنًا من 6 أرقام إلى user@example.com تعديل",
+      "resendOtp": "إرسال رمز جديد",
+      "submit": "تأكيد الرمز",
+      "Contact": "هل تحتاج إلى مساعدة؟ <span>تواصل معنا</span>",
+      "loading": "جارٍ التحقق..."
+    }
   }
 }
