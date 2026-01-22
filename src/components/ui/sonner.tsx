@@ -19,11 +19,10 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group"
       toastOptions={{
         classNames: {
-          // The base toast class
-          toast: "group toast h-12 group-[.toaster]:bg-zinc-100 group-[.toaster]:text-foreground group-[.toaster]:border-zinc-400 dark:group-[.toaster]:!bg-zinc-300 dark:group-[.toaster]:!text-zinc-800 dark:group-[.toaster]:!border-0",
+        
           
           // Specific state overrides
-          success: "group-[.toaster]:!bg-emerald-50 group-[.toaster]:!border-emerald-700 group-[.toaster]:!text-zinc-800  !dark:group-[.toaster]:bg-emerald-300 dark:group-[.toaster]:text-zinc-800 dark:group-[.toaster]:border-emerald-800",
+          success: "group-[.toaster]:!bg-emerald-50 group-[.toaster]:!border-emerald-700 group-[.toaster]:!text-zinc-800  dark:group-[.toaster]:!bg-emerald-300 dark:group-[.toaster]:!text-zinc-800 dark:group-[.toaster]:border-emerald-800",
           error: "group-[.toaster]:!bg-red-50 group-[.toaster]:!text-zinc-800 group-[.toaster]:!border-red-700 dark:group-[.toaster]:!bg-red-300 dark:group-[.toaster]:!text-zinc-800 dark:group-[.toaster]:!border-red-700 dark:group-[.toaster]:border-red-800",
           warning: "group-[.toaster]:bg-amber-50 group-[.toaster]:text-amber-900 group-[.toaster]:border-amber-200 dark:group-[.toaster]:bg-amber-950 dark:group-[.toaster]:text-amber-200 dark:group-[.toaster]:border-amber-800 ",
           info: "group toast h-12 group-[.toaster]:!bg-zinc-100 group-[.toaster]:!text-foreground group-[.toaster]:!border-zinc-400 dark:group-[.toaster]:!bg-zinc-300 dark:group-[.toaster]:!text-zinc-800 dark:group-[.toaster]:!border-0",
