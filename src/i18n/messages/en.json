@@ -102,11 +102,16 @@
   "auth": {
     "verifyPassword": {
       "title": "Enter the OTP Code",
-      "description": "We have sent a 6-digit code to user@example.com Edit",
+      "description": "We have sent a 6-digit code to",
+      "edit": "Edit",
       "resendOtp": "Send a new code",
       "submit": "Verify OTP",
       "Contact": "Need help? <span>Contact us</span>",
-      "loading": "Verifying..."
+      "loading": "Verifying...",
+      "new-otp-sent": "a new OTP have been sent to your email.",
+      "otp-schema": "OTP must be 6 digits code",
+      "request-another-code": "You can request another code in",
+      "successfully-reset-toast": "Your Password has been successfully reset."
     }
   }
 }

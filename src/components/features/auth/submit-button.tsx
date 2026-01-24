@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+import SubmitError from '@/components/error/submit-error';
 
 interface SubmitButtonProps {
   error: Error | null;
@@ -14,7 +15,7 @@ interface SubmitButtonProps {
   loading: string;
 }
 export default function SubmitButton({
-  // error,
+  error,
   text,
   title,
   isValid,
@@ -28,13 +29,6 @@ export default function SubmitButton({
 
   return (
     <div className="flex flex-col gap-6 pt-9">
-      {/* Error
-      {error && (
-        <div className="">
-          <SubmitError errors={error} />
-        </div>
-      )} */}
-
       {/* Button */}
       <div className="">
         <Button
@@ -67,6 +61,12 @@ export default function SubmitButton({
           </div>
         )}
       </div>
+      {/* Error */}
+      {error && (
+        <div className="">
+          <SubmitError errors={error} />
+        </div>
+      )}
     </div>
   );
 }
