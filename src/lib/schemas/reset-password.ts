@@ -1,27 +1,32 @@
 import z from 'zod';
+import { Translations } from '../types/global';
 
-export const resetSchema = z
-  .object({
-    password: z
-      .string()
-      .nonempty(' your password is required')
-      .min(8, { message: 'Password must be at least 8 characters long.' })
-      .refine((password) => /[A-Z]/.test(password), {
-        message: 'Password must contain at least one uppercase letter.',
-      })
-      .refine((password) => /[a-z]/.test(password), {
-        message: 'Password must contain at least one lowercase letter.',
-      })
-      .refine((password) => /[0-9]/.test(password), {
-        message: 'Password must contain at least one number.',
-      })
-      .refine((password) => /[!@#$%^&*]/.test(password), {
-        message: 'Password must contain at least one special character.',
-      }),
-    newPassword: z.string().nonempty(' your Confirm Password is required'),
-  })
-  .refine((data) => data.password === data.newPassword, {
-    message: 'Passwords do not match',
-    path: ['newPassword'],
-  });
-export type ResetPasswordFormFields = z.infer<typeof resetSchema>;
+export const resetSchema = (t: Translations) =>
+  z
+    .object({
+      password: z
+        .string()
+        .nonempty(t('reset-password.form.schema.password-required'))
+        .min(8, { message: t('reset-password.form.schema.password-min') })
+        .refine((password) => /[A-Z]/.test(password), {
+          message: t('reset-password.form.schema.password-uppercase'),
+        })
+        .refine((password) => /[a-z]/.test(password), {
+          message: t('reset-password.form.schema.password-lowercase'),
+        })
+        .refine((password) => /[0-9]/.test(password), {
+          message: t('reset-password.form.schema.password-number'),
+        })
+        .refine((password) => /[!@#$%^&*]/.test(password), {
+          message: t('reset-password.form.schema.password-character'),
+        }),
+      newPassword: z
+        .string()
+        .nonempty(t('reset-password.form.schema.confirmpassword-required')),
+    })
+    .refine((data) => data.password === data.newPassword, {
+      message: t('reset-password.form.schema.password-match'),
+      path: ['newPassword'],
+    });
+
+export type ResetPasswordFormFields = z.infer<ReturnType<typeof resetSchema>>;

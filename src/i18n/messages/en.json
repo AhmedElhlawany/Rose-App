@@ -98,6 +98,16 @@
         "submit": {
           "reset": "Reset Password",
           "contact": "Need help? <span> Contact us </span>"
+        },
+        "schema": {
+          "password-required": "your password is required",
+          "password-min": "Password must be at least 8 characters long.",
+          "password-uppercase": "Password must contain at least one uppercase letter.",
+          "password-lowercase": "Password must contain at least one lowercase letter.",
+          "password-number": "Password must contain at least one number.",
+          "password-character": "Password must contain at least one special character.",
+          "confirmpassword-required": "your Confirm Password is required",
+          "password-match": "Passwords do not match"
         }
       },
       "reset-message": " Your password has been successfully updated"

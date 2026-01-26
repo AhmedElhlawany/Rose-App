@@ -24,7 +24,7 @@ export default function ResetPasswordForm() {
   // Form
   const { register, handleSubmit, formState } = useForm({
     mode: 'all',
-    resolver: zodResolver(resetSchema),
+    resolver: zodResolver(resetSchema(t)),
     defaultValues: {
       newPassword: '',
       password: '',
