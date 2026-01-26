@@ -79,9 +79,13 @@
           "continue": "Continue",
           "no-account": "Don’t have an account yet?  <span> Create one now! </span>",
           "loading": "Loading..."
+        },
+        "schema": {
+          "email-required": "email is required",
+          "email-invalid": "Invalid email"
         }
       },
-      "forget-message":" OTP sent to your email"
+      "forget-message": " OTP sent to your email"
     },
     "reset-password": {
       "create-new-password": "create a new password",
@@ -96,7 +100,7 @@
           "contact": "Need help? <span> Contact us </span>"
         }
       },
-       "reset-message":" Your password has been successfully updated"
+      "reset-message": " Your password has been successfully updated"
     }
   }
 }

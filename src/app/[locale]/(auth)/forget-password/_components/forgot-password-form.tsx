@@ -23,7 +23,7 @@ export default function ForgotPasswordForm() {
   const { register, formState, handleSubmit } =
     useForm<ForgotPasswordFormFields>({
       mode: 'all',
-      resolver: zodResolver(forgotSchema),
+      resolver: zodResolver(forgotSchema(t)),
       defaultValues: {
         email: '',
       },
