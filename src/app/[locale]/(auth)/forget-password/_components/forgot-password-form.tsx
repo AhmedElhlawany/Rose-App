@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { UseForgot } from '../_hooks/use-forgot-password';
+
 import {
   ForgotPasswordFormFields,
   forgotSchema,
@@ -11,13 +11,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import TextField from '@/components/features/auth/auth-fields/text-field';
 import SubmitButton from '@/components/features/auth/submit-button';
+import { useForgot } from '../_hooks/use-forgot-password';
 
 export default function ForgotPasswordForm() {
   // Treanslation
   const t = useTranslations('auth');
 
   // Hook
-  const { error, forgot, isPending } = UseForgot({ redirect: true });
+  const { error, forgot, isPending } = useForgot({ redirect: true });
 
   // Form
   const { register, formState, handleSubmit } =
@@ -30,7 +31,7 @@ export default function ForgotPasswordForm() {
     });
 
   // Function
-  const onsubmit: SubmitHandler<ForgotPasswordFormFields> = async (data) => {
+  const onsubmit: SubmitHandler<ForgotPasswordFormFields> = (data) => {
     forgot(data);
   };
 

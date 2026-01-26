@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
-export const UseResetPassword = () => {
+export const useResetPassword = () => {
   // Translation
   const t = useTranslations('auth');
 

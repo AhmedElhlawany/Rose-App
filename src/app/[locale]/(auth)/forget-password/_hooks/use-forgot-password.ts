@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
-export const UseForgot = ({ redirect = true }) => {
+export const useForgot = ({ redirect = true }) => {
   // Translation
   const t = useTranslations('auth');
 // ! To be handled by the flow owner

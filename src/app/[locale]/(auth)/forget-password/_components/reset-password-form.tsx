@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import PasswordField from '@/components/features/auth/auth-fields/password-field';
 import SubmitButton from '@/components/features/auth/submit-button';
-import { UseResetPassword } from '../_hooks/use-reset-password';
+
 import {
   ResetPasswordFormFields,
   resetSchema,
@@ -13,13 +13,14 @@ import {
 import { ResetPasswordPayload } from '@/lib/types/auth/forget-password/reset';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSearchParams } from 'next/navigation';
+import { useResetPassword } from '../_hooks/use-reset-password';
 
 export default function ResetPasswordForm() {
   // Treanslation
   const t = useTranslations('auth');
 
   // Hook
-  const { error, isPending, resetpassword } = UseResetPassword();
+  const { error, isPending, resetpassword } = useResetPassword();
 
   // Form
   const { register, handleSubmit, formState } = useForm({
@@ -37,7 +38,7 @@ export default function ResetPasswordForm() {
   const email = params.get('email') || 'hadywahba19@gmail.com';
 
   // Function
-  const onsubmit: SubmitHandler<ResetPasswordFormFields> = async (data) => {
+  const onsubmit: SubmitHandler<ResetPasswordFormFields> = (data) => {
     const payload: ResetPasswordPayload = {
       email: email,
       newPassword: data.newPassword,
