@@ -5,14 +5,13 @@ import { VerifyResetFields } from '@/lib/types/auth/verify';
 
 export async function VerifyPassword(data: VerifyResetFields) {
   const res = await fetch(
-    'https://flower.elevateegy.com/api/v1/auth/verifyResetCode',
+    `${process.env.NEXT_PUBLIC_API}/auth/verifyResetCode`,
     {
       method: 'POST',
       headers: {
         ...JSON_HEADER,
       },
       body: JSON.stringify(data),
-      cache: 'no-store',
     },
   );
 

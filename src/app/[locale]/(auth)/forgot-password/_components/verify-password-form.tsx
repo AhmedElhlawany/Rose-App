@@ -1,6 +1,7 @@
 'use client';
 
 import SubmitButton from '@/components/features/auth/submit-button';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -17,18 +18,18 @@ import {
 import { verifySchema } from '@/lib/schema/verify-passwoerd';
 import { VerifyResetFields } from '@/lib/types/auth/verify';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { Dispatch, SetStateAction } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useVerifyPassword } from '../_hooks/use-verify-password';
-import { Button } from '@/components/ui/button';
-import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import { toast } from 'sonner';
-import { UseForgot } from '../_hooks/use-forgot-password';
+import { useResendTimer } from '../_hooks/use-resend-timer';
+import { useVerifyPassword } from '../_hooks/use-verify-password';
 
 type VerifyPasswordProps = {
   email: string;
   // TODO set step to forget password
-  setStep: Dispatch<SetStateAction<'forget-password'>>;
+  setStep: Dispatch<
+SetStateAction<'forget-password' | 'verify-password' | 'reset-password'>>;
 };
 
 export default function VerifyPasswordForm({
@@ -40,27 +41,14 @@ export default function VerifyPasswordForm({
 
   // Translations
   const t = useTranslations('auth');
+  const locale = useLocale();
+
 
   // Hooks
   const { isPending, error, verifyResetCode } = useVerifyPassword();
-  const { forgot } = UseForgot();
-
-  // State
-  const [countDown, setCountDown] = useState(0);
-
-  // Timer effect
-  useEffect(() => {
-    if (countDown <= 0) return;
-
-    const timer = setInterval(() => {
-      setCountDown((prev) => {
-        if (prev <= 1) return 0;
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [countDown]);
+  // TODO remove this comment
+  // const { forgot } = UseForgot();
+  const { timeLeft, canResend, startTimer } = useResendTimer();
 
   // Hook Form
   const form = useForm<VerifyResetFields>({
@@ -80,7 +68,7 @@ export default function VerifyPasswordForm({
           {t('verifyPassword.title')}
         </h1>
         <p className="text-sm dark:text-zinc-50">
-          {t('verifyPassword.description')} {email || 'mostafa@gmail.com'}{' '}
+          {t('verifyPassword.description')} {email}{' '}
           <Button
             className="w-auto p-0 text-blue-700"
             type="button"
@@ -121,11 +109,13 @@ export default function VerifyPasswordForm({
                 </FormControl>
 
                 <FormDescription className="text-base font-medium text-zinc-800">
-                  {countDown > 0 ? (
+                  {!canResend ? (
                     <div className="text-center">
                       <p>
-                        {t('verifyPassword.request-another-code')}:{' '}
-                        {`${Math.floor(countDown / 60)}:${String(countDown % 60).padStart(2, '0')}`}
+                        {t('verifyPassword.request-another-code')} :{' '}
+                        {new Intl.NumberFormat(locale, {
+                          numberingSystem: locale === 'ar' ? 'arab' : 'latn',
+                        }).format(timeLeft)}
                       </p>
                     </div>
                   ) : (
@@ -135,24 +125,10 @@ export default function VerifyPasswordForm({
                       onClick={() => {
                         if (!email) return;
 
-                        // Start countdown immediately
-                        setCountDown(60);
-
-                        // TODO call function forgot password
-                        forgot({
-                          email,
-                          onSuccess: () => {
-                            toast.success(t('verifyPassword.new-otp-sent'), {
-                              duration: 3000,
-                            });
-                          },
-                          onError: () => {
-                            // Reset countdown on error
-                            setCountDown(0);
-                            toast.error(error?.message, {
-                              duration: 3000,
-                            });
-                          },
+                        forgot({ email });
+                        startTimer();
+                        toast.success(t('verifyPassword.new-otp-sent'), {
+                          duration: 3000,
                         });
                       }}
                     >
