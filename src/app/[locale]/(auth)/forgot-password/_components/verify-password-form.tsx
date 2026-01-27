@@ -15,7 +15,7 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from '@/components/ui/input-otp';
-import { verifySchema } from '@/lib/schema/verify-passwoerd';
+import { verifySchema } from '@/lib/schema/verify-password';
 import { VerifyResetFields } from '@/lib/types/auth/verify';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useLocale, useTranslations } from 'next-intl';
