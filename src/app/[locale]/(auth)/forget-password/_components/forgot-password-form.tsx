@@ -9,9 +9,17 @@ import {
 } from '@/lib/schemas/forgot-password';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import TextField from '@/components/features/auth/auth-fields/text-field';
 import SubmitButton from '@/components/features/auth/submit-button';
 import { useForgot } from '../_hooks/use-forgot-password';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
 export default function ForgotPasswordForm() {
   // Treanslation
@@ -21,14 +29,13 @@ export default function ForgotPasswordForm() {
   const { error, forgot, isPending } = useForgot({ redirect: true });
 
   // Form
-  const { register, formState, handleSubmit } =
-    useForm<ForgotPasswordFormFields>({
-      mode: 'all',
-      resolver: zodResolver(forgotSchema(t)),
-      defaultValues: {
-        email: '',
-      },
-    });
+  const form = useForm<ForgotPasswordFormFields>({
+    mode: 'all',
+    resolver: zodResolver(forgotSchema(t)),
+    defaultValues: {
+      email: '',
+    },
+  });
 
   // Function
   const onsubmit: SubmitHandler<ForgotPasswordFormFields> = (data) => {
@@ -47,33 +54,48 @@ export default function ForgotPasswordForm() {
         </p>
       </div>
 
-      {/*Form Part  */}
-      <form
-        onSubmit={handleSubmit(onsubmit)}
-        className="flex flex-col justify-center"
-      >
-        {/* Email Section */}
-        <TextField
-          label="forget-password.form.email.label"
-          placeholder="forget-password.form.email.placeholder"
-          name="email"
-          register={register}
-          type="email"
-          errors={formState.errors}
-        />
+      <Form {...form}>
+        {/*Form */}
+        <form
+          onSubmit={form.handleSubmit(onsubmit)}
+          className="flex flex-col justify-center"
+        >
+          {/* Email Field */}
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t('forget-password.form.email.label')}</FormLabel>
 
-        {/* Submit Button */}
-        <SubmitButton
-          error={error}
-          isSubmitting={formState.isSubmitting}
-          isValid={formState.isValid}
-          isPending={isPending}
-          loading="forget-password.form.submit.loading"
-          text="forget-password.form.submit.continue"
-          title="forget-password.form.submit.no-account"
-          link="/register"
-        />
-      </form>
+                {/* Field */}
+                <FormControl>
+                  {/* Input */}
+                  <Input
+                    {...field}
+                    placeholder={t('forget-password.form.email.placeholder')}
+                    className="w-full text-black placeholder:text-zinc-400 dark:text-zinc-50"
+                  />
+                </FormControl>
+
+                {/* Feedلاack */}
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* Submit Button */}
+          <SubmitButton
+            error={error}
+            isSubmitting={form.formState.isSubmitting}
+            isValid={form.formState.isValid}
+            isPending={isPending}
+            loading="forget-password.form.submit.loading"
+            text="forget-password.form.submit.continue"
+            title="forget-password.form.submit.no-account"
+            link="/register"
+          />
+        </form>
+      </Form>
     </section>
   );
 }
