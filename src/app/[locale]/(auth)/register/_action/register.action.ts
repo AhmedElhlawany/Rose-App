@@ -2,7 +2,7 @@ import { RegisterFields, RegisterResponse } from "@/lib/types/auth";
 
 export async function registerService(fields: RegisterFields) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
+    `${process.env.API_URL!}/auth/signup`,
     {
       method: "POST",
       body: JSON.stringify(fields),
@@ -11,8 +11,6 @@ export async function registerService(fields: RegisterFields) {
       },
     }
   );
-  const payload: ApiResponse<RegisterResponse> = await response.json();
-  console.log("payload", payload);
-  
+  const payload: ApiResponse<RegisterResponse> = await response.json();  
   return payload;
 }

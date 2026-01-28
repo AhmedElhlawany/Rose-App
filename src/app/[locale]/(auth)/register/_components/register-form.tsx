@@ -246,9 +246,9 @@ export function RegisterForm() {
                         className="absolute end-2 top-1/2 -translate-y-1/2 text-gray-400"
                       >
                         {showPassword ? (
-                          <EyeOff className="h-5 w-5" />
+                          <EyeOff className="size-5" />
                         ) : (
-                          <Eye className="h-5 w-5" />
+                          <Eye className="size-5" />
                         )}
                       </button>
                     </div>
@@ -289,9 +289,9 @@ export function RegisterForm() {
                         className="absolute end-3 top-1/2 -translate-y-1/2 text-gray-400"
                       >
                         {showConfirmPassword ? (
-                          <EyeOff className="h-5 w-5" />
+                          <EyeOff className="size-5" />
                         ) : (
-                          <Eye className="h-5 w-5" />
+                          <Eye className="size-5" />
                         )}
                       </button>
                     </div>
