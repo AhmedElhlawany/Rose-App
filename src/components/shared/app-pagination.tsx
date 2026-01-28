@@ -17,121 +17,56 @@ import { Locale } from 'next-intl';
 // Types
 type SearchParam = Record<string, string | string[] | undefined>;
 
-/**
- * Props for AppPagination component.
- */
 type Props = {
-  /**
-   * Example: "/products"
-   */
   pathname: string;
-
-  /**
-   * Current search params object coming from a Server Component.
-   */
   searchParams: SearchParam;
-
-  /**
-   * Currently active page.
-   */
   currentPage: number;
-
-  /**
-   * Total number of pages from API metadata.
-   */
   totalPages: number;
-
-  /**
-   * Number of pages shown before and after the current page.
-   * Example:
-   *  windowSize = 2, currentPage = 4
-   *  → 2, 3, 4, 5, 6
-   *
-   * @default 2
-   */
   windowSize?: number;
-
-  /**
-   * Control rendering of pagination UI.
-   * Useful when pagination should be conditionally hidden.
-   */
   show: boolean;
-
-  /**
-   * Current application locale.
-  
-   */
   locale: Locale;
 };
 
-/**
- * Creates a pagination URL while preserving all existing query params.
- * Only updates the `page` query parameter.
- *
- * @param pathname - Route pathname without query string.
- * @param searchParams - Existing query params.
- * @param page - Target page number (1-based).
- * @returns Full URL including updated query string.
- */
-
 // Variables
-const searchQuery = new URLSearchParams();
 
 // Functions
 function createHref(pathname: string, searchParams: SearchParam, page: number) {
-  // Preserve all existing params (including array params)
+  const searchQuery = new URLSearchParams();
+  searchQuery.forEach((_, key) => searchQuery.delete(key));
+
   Object.entries(searchParams).forEach(([key, value]) => {
     if (value === undefined) return;
     if (Array.isArray(value)) value.forEach((v) => searchQuery.append(key, v));
     else searchQuery.set(key, value);
   });
 
-  // Update page param only
   searchQuery.set('page', String(page));
-  // paginated to same path with query search params
   return `${pathname}?${searchQuery.toString()}`;
 }
 
-/**
- * Generates pagination range with ellipsis.
- *
- * Pattern:
- *  1 … (current - windowSize → current + windowSize) … last
- *
- * Example:
- *  current = 4, total = 10, windowSize = 2
- *  → [1, "...", 2, 3, 4, 5, 6, "...", 10]
- *
- * @param current - Current page.
- * @param total - Total pages.
- * @param windowSize - Pages before/after current.
- */
 function getRange(current: number, total: number, windowSize: number) {
   if (total <= 1) return [];
+
   const first = 1;
   const last = total;
   const start = Math.max(first + 1, current - windowSize);
   const end = Math.min(last - 1, current + windowSize);
+
   const items: (number | 'ellipsis')[] = [];
-  // Always show first page
+
   items.push(first);
-  // Left ellipsis if needed
+
   if (start > first + 1) items.push('ellipsis');
-  // Page window
+
   for (let p = start; p <= end; p++) items.push(p);
-  // Right ellipsis if needed
+
   if (end < last - 1) items.push('ellipsis');
-  // Always show last page
+
   if (last !== first) items.push(last);
 
   return items;
 }
 
-/**
- * Base styles for navigation buttons (first / prev / next / last).
- *
- * @param disabled - Whether button should be disabled.
- */
 function baseBtn(disabled: boolean) {
   return [
     'h-11 min-w-11 px-4',
@@ -145,11 +80,6 @@ function baseBtn(disabled: boolean) {
   ].join(' ');
 }
 
-/**
- * Styles for numbered page buttons.
- *
- * @param active - Whether page is the current page.
- */
 function pageBtn(active: boolean) {
   return [
     'h-11 min-w-11 px-4',
@@ -161,11 +91,7 @@ function pageBtn(active: boolean) {
       : 'bg-white text-zinc-900 border-zinc-200 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100',
   ].join(' ');
 }
-
-/**
- * Returns localized aria-labels for pagination controls.
- * Used for accessibility (screen readers).
- */
+// for-A11Y
 function getLabels(locale: Locale) {
   if (locale === 'ar') {
     return {
@@ -188,13 +114,6 @@ function getLabels(locale: Locale) {
  * AppPagination
  * ------------------------------------------------------------------
  * Server-friendly pagination component based on shadcn/ui.
- *
- * Features:
- * - Works in Server Components (no state, no callbacks).
- * - Preserves existing query params.
- * - Supports RTL (Arabic) and LTR (English).
- * - Accessible (aria-labels).
- * - Customizable window size.
  */
 export default function AppPagination({
   pathname,
@@ -205,21 +124,16 @@ export default function AppPagination({
   show = true,
   locale = 'en',
 }: Props) {
-  // Hide pagination if disabled or unnecessary
   if (!show || totalPages <= 1) return null;
 
-  // Variables
   const items = getRange(currentPage, totalPages, windowSize);
 
-  // Edge detection
   const isFirst = currentPage === 1;
   const isLast = currentPage === totalPages;
 
-  // RTL detection (Arabic)
   const isRTL = locale === 'ar';
   const labels = getLabels(locale);
 
-  // Swap icons direction in RTL
   const FirstIcon = isRTL ? ChevronsRight : ChevronsLeft;
   const LastIcon = isRTL ? ChevronsLeft : ChevronsRight;
   const PrevIcon = isRTL ? ChevronRight : ChevronLeft;
@@ -228,7 +142,7 @@ export default function AppPagination({
   return (
     <Pagination dir={isRTL ? 'rtl' : 'ltr'}>
       <PaginationContent className="gap-2">
-        {/* First page */}
+        {/* First */}
         <PaginationItem>
           <PaginationLink
             asChild
@@ -241,7 +155,7 @@ export default function AppPagination({
           </PaginationLink>
         </PaginationItem>
 
-        {/* Previous page */}
+        {/* Previous */}
         <PaginationItem>
           <PaginationLink
             asChild
@@ -260,14 +174,23 @@ export default function AppPagination({
           </PaginationLink>
         </PaginationItem>
 
-        {/* Pages + ellipsis */}
-        {items.map((item, index) =>
-          item === 'ellipsis' ? (
-            <PaginationItem key={`el-${index}`}>
-              <PaginationEllipsis className="px-2 text-zinc-500 dark:text-zinc-400" />
-            </PaginationItem>
-          ) : (
-            <PaginationItem key={item}>
+        {/* Pages + Ellipsis*/}
+        {items.map((item, i) => {
+          if (item === 'ellipsis') {
+            const prev = items[i - 1];
+            const next = items[i + 1];
+            // Unique Key according to current position
+            const key = `ellipsis-${prev ?? 'start'}-${next ?? 'end'}`;
+
+            return (
+              <PaginationItem key={key}>
+                <PaginationEllipsis className="px-2 text-zinc-500 dark:text-zinc-400" />
+              </PaginationItem>
+            );
+          }
+
+          return (
+            <PaginationItem key={`page-${item}`}>
               <PaginationLink
                 asChild
                 isActive={item === currentPage}
@@ -278,10 +201,10 @@ export default function AppPagination({
                 </Link>
               </PaginationLink>
             </PaginationItem>
-          ),
-        )}
+          );
+        })}
 
-        {/* Next page */}
+        {/* Next */}
         <PaginationItem>
           <PaginationLink
             asChild
@@ -300,7 +223,7 @@ export default function AppPagination({
           </PaginationLink>
         </PaginationItem>
 
-        {/* Last page */}
+        {/* Last */}
         <PaginationItem>
           <PaginationLink
             asChild
