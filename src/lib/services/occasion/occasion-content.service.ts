@@ -1,8 +1,8 @@
 import { JSON_HEADER } from '@/lib/constants/api.constant';
 import { OccasionsResponse } from '@/lib/types/occasion/occasion';
 
-export const getOccasion = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API}/occasions`, {
+export const getOccasion = async (limit: number) => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API}/occasions?limit=${limit}`, {
     method: 'GET',
     headers: {
       ...JSON_HEADER,
