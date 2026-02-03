@@ -29,7 +29,7 @@ import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/', icon: Home },
-  { label: 'Products', href: '/products', icon: Gift },
+  { label: 'Products', href: '/product', icon: Gift },
   { label: 'Categories', href: '/categories', icon: LayoutGrid },
   { label: 'Occasions', href: '/occasions', icon: PartyPopper },
   { label: 'Contact', href: '/contact', icon: Headset },

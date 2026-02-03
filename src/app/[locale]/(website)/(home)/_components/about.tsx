@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { Button } from '../../../../components/ui/button';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import { Button } from '@/components/ui/button';
 
 export default function About() {
   // Translation
