@@ -1,4 +1,4 @@
-import Footer from '@/components/layout/app/footer';
+
 import Header from '@/components/layout/app/header';
 import React from 'react';
 
@@ -12,7 +12,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
       {children}
 
       {/* Footer */}
-      <Footer />
+     
     </main>
   );
 }
