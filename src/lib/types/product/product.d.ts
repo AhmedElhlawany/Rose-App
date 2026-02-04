@@ -30,5 +30,5 @@ export interface Metadata {
 
 export interface ProductsResponse {
   metadata: Metadata;
-  occasions: Product[];
+  products: Product[];
 }
