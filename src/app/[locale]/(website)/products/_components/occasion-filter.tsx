@@ -9,7 +9,7 @@ export default function OccasionFilter() {
     <section className="w-full border-y-2 border-green-600 lg:max-w-[17.3125rem]">
       {/* Title & Rest Button */}
 
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full items-center justify-between pt-3">
         {/* Title */}
         <h2 className="text-lg font-semibold capitalize text-zinc-800 dark:text-zinc-50">
           occasion
@@ -24,7 +24,9 @@ export default function OccasionFilter() {
 
       {/* Occasions */}
 
-      <OccasionFilterList />
+      <div className="mb-6">
+        <OccasionFilterList />
+      </div>
     </section>
   );
 }
