@@ -247,7 +247,10 @@
       }
     }
   },
-  "occasion-filter": {
-    "occasion": "occasion"
+  "product-filter": {
+    "occasion": "occasion",
+    "price": "price",
+    "price-from":"from",
+    "price-to":"to"
   }
 }

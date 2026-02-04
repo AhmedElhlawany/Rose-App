@@ -202,7 +202,10 @@
       }
     }
   },
-  "occasion-filter": {
-    "occasion": "مناسبة"
+  "product-filter": {
+    "occasion": "المناسبة",
+    "price": "السعر",
+    "price-from": "من",
+    "price-to": "إلى"
   }
 }

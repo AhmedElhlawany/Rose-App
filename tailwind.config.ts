@@ -84,6 +84,7 @@ const config: Config = {
         sarabun: ['var(--font-sarabun)', 'sans-serif'],
         zain: ['var(--font-zain)', 'sans-serif'],
         sans: ['var(--font-sarabun)', 'sans-serif'],
+        inter: ['var(--font-inter)'],
       },
       borderRadius: {
         lg: 'var(--radius)',
