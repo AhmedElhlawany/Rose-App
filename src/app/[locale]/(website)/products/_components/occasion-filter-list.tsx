@@ -56,7 +56,7 @@ export default function OccasionFilterList() {
         }
         endMessage={
           <div className="py-4 text-center text-gray-500">
-            No more Occasions to load
+            No more Occasions
           </div>
         }
         scrollableTarget="occasion-scrollable"

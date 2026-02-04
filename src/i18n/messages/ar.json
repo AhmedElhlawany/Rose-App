@@ -201,5 +201,8 @@
         "error": "فشل إنشاء الحساب"
       }
     }
+  },
+  "occasion-filter": {
+    "occasion": "مناسبة"
   }
 }

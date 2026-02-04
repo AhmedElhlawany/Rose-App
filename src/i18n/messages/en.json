@@ -246,5 +246,8 @@
         "error": "Failed to create account"
       }
     }
+  },
+  "occasion-filter": {
+    "occasion": "occasion"
   }
 }
