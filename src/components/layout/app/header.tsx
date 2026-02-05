@@ -4,7 +4,7 @@ import React from 'react';
 import {
   Search,
   MapPin,
-  ChevronDown,
+  // ChevronDown,
   Heart,
   ShoppingCart,
   Bell,
@@ -28,6 +28,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggleIcon from './theme-toggle';
 import ToggleLocale from '@/components/ui/ToggleLocale';
+import LoginForm from '@/app/[locale]/(auth)/login/_components/login-form';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+// import { useSession } from 'next-auth/react';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/', icon: Home },
@@ -40,9 +43,10 @@ const NAV_LINKS = [
 
 const Header = () => {
   const pathname = usePathname();
+  // const { data: session, status } = useSession(); // TODO: add auth
 
   return (
-    <header className="w-full bg-white shadow-sm">
+    <header className="w-full bg-white shadow-sm dark:bg-zinc-700">
       {/* --- Top Row --- */}
       <div className="mx-auto flex items-center gap-6 px-4 py-4">
         {/* Logo & Delivery */}
@@ -75,13 +79,43 @@ const Header = () => {
           />
         </div>
 
-        {/* User Actions & Icons */}
+        {/* User Actions */}
         <div className="flex items-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger className="flex flex-col items-start text-sm outline-none">
-              <span className="text-xs text-gray-400">Hello</span>
-              <div className="flex items-center gap-1 font-semibold text-red-900">
-                Jonathan <ChevronDown className="h-4 w-4" />
+              <div className="relative">
+                {/* {session?.user ? (
+        <p className="font-medium">
+          Hello {session.user.name}
+        </p> */}
+                {sessionStorage.getItem('user') ? (
+                  <p className="font-medium">
+                    Hello{' '}
+                    {JSON.parse(sessionStorage.getItem('user') || '{}').name}
+                  </p>
+                ) : (
+                  <div className="group relative">
+                    <button className="px-4 py-2 font-medium dark:text-zinc-50">Login</button>
+
+                    {/* component for hover */}
+                    <div className="invisible absolute right-0 top-full z-10 mt-2 opacity-0 transition-opacity duration-200 group-hover:visible group-hover:opacity-100">
+                      <div className="z-30 w-96 rounded-md bg-white p-4 shadow-lg">
+                        <Tabs defaultValue="account" className="w-full pb-4">
+                          <TabsList>
+                            <TabsTrigger value="account">
+                              <Link href="/login">Login </Link>
+                            </TabsTrigger>
+                            <TabsTrigger value="password">
+                              <Link href="/register">Register</Link>
+                            </TabsTrigger>
+                          </TabsList>
+                        </Tabs>
+
+                        <LoginForm />
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -95,18 +129,18 @@ const Header = () => {
 
           <div className="flex items-center gap-5 text-gray-600">
             <button className="hover:text-red-800">
-              <Heart className="h-6 w-6" />
+              <Heart className="h-6 w-6 dark:text-zinc-50" />
             </button>
 
             <button className="relative hover:text-red-800">
-              <ShoppingCart className="h-6 w-6" />
+              <ShoppingCart className="h-6 w-6 dark:text-zinc-50" />
               <Badge className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center bg-red-600 p-0 hover:bg-red-600">
                 8
               </Badge>
             </button>
 
             <button className="relative hover:text-red-800">
-              <Bell className="h-6 w-6" />
+              <Bell className="h-6 w-6 dark:text-zinc-50" />
               <Badge className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center bg-red-600 p-0 hover:bg-red-600">
                 8
               </Badge>
@@ -114,10 +148,6 @@ const Header = () => {
           </div>
           <ThemeToggleIcon />
           <ToggleLocale />
-
-          
-
-          
         </div>
       </div>
 

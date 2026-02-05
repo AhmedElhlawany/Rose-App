@@ -11,6 +11,7 @@ import Footer from '@/components/layout/app/footer';
 export default function Home() {
   return (
     <main className="mx-auto flex flex-col items-center justify-center">
+      
       <Header />
       {/* Hero Section */}
       <Hero />
