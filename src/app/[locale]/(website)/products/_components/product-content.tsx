@@ -9,7 +9,7 @@ export default function ProductContent() {
   // Hook
   const locale = useLocale();
   return (
-    <div className="mx-20 mt-20 flex-col items-start justify-center gap-5 lg:flex lg:flex-row lg:items-start lg:justify-center">
+    <div className="mx-20 mt-20 mb-10 flex-col items-start justify-center gap-5 lg:flex lg:flex-row lg:items-start lg:justify-center">
       {/* Filters */}
       <section className='w-full lg:max-w-[18.9125rem] flex flex-col'>
         {/* Occasion Filter */}

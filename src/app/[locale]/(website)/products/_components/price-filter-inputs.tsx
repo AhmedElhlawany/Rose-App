@@ -5,7 +5,16 @@ import React, { useEffect, useState } from 'react';
 import { useFilters } from '../_hooks/use-filter';
 import { useDebounce } from 'use-debounce';
 
-export default function PriceFilterInputs() {
+interface PriceFilterInputsProps {
+  resetFlag: boolean;
+  handleReset: () => void;
+}
+
+const DEBOUNCE_TIME = 1000;
+export default function PriceFilterInputs({
+  resetFlag,
+  handleReset,
+}: PriceFilterInputsProps) {
   // Translations
   const t = useTranslations('product-filter');
 
@@ -19,8 +28,8 @@ export default function PriceFilterInputs() {
   const [from, setFrom] = useState(filters['price[gte]'] ?? '');
   const [to, setTo] = useState(filters['price[lte]'] ?? '');
 
-  const [debouncedFrom] = useDebounce(from, 2000);
-  const [debouncedTo] = useDebounce(to, 2000);
+  const [debouncedFrom] = useDebounce(from, DEBOUNCE_TIME);
+  const [debouncedTo] = useDebounce(to, DEBOUNCE_TIME);
 
   // Effect
   useEffect(() => {
@@ -31,8 +40,18 @@ export default function PriceFilterInputs() {
     setFilter('price[lte]', debouncedTo || null);
   }, [debouncedTo, setFilter]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (resetFlag) {
+        setFrom('');
+        setTo('');
+        handleReset();
+      }
+    }, DEBOUNCE_TIME);
+  }, [resetFlag, handleReset]);
+
   return (
-    <section className="flex w-full items-center justify-between gap-2 lg:w-[18.875rem]">
+    <section className=" flex flex-col justify-center items-center sm:flex sm:flex-row w-full sm:items-center sm:justify-between gap-2 lg:w-[18.875rem]">
       <div className="w-full flex-1">
         {/* Label */}
         <Label className="font-inter text-sm font-medium">
@@ -43,7 +62,7 @@ export default function PriceFilterInputs() {
           value={from}
           onChange={(e) => setFrom(e.target.value)}
           type="number"
-          className="w-full"
+          className="w-full dark:text-zinc-50"
         />
       </div>
       <div className="w-full flex-1">
@@ -56,7 +75,7 @@ export default function PriceFilterInputs() {
           type="number"
           value={to}
           onChange={(e) => setTo(e.target.value)}
-          className="w-full"
+          className="w-full dark:text-zinc-50"
         />
       </div>
     </section>

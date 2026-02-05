@@ -27,7 +27,7 @@ export default function OccasionFilter() {
         {filters.occasion && (
           <Button
             onClick={() => resetFilter('occasion')}
-            className="w-fit gap-1 bg-transparent px-0 capitalize text-red-600 hover:bg-transparent dark:text-red-500"
+            className="w-fit gap-1 bg-transparent px-0 capitalize text-red-600 hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:text-red-500"
           >
             <X className="text-red-600 dark:text-red-500" />
             reset

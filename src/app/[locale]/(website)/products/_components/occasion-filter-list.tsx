@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utility/tailwind-merge';
 import { useFilters } from '../_hooks/use-filter';
+import ListError from '@/components/error/list-error';
 
 const OCCASIONS_PER_PAGE = 6;
 
@@ -19,15 +20,17 @@ export default function OccasionFilterList() {
   const scrollableDivRef = useRef<HTMLDivElement>(null);
 
   // Hook
-  const { occasion, hasNextPage, fetchNextPage, isLoading } = useOccasion();
+  const { occasion, hasNextPage, fetchNextPage, isLoading, error } =
+    useOccasion();
   const { setFilter, filters } = useFilters({
     occasion: null,
   });
-
+  console.log(error);
   // Variable
   const occasionItems = occasion?.pages.flatMap((page) => page.occasions) || [];
   const active = filters.occasion;
   return (
+    <ListError errors={error} >
     <div
       ref={scrollableDivRef}
       id="occasion-scrollable"
@@ -51,9 +54,11 @@ export default function OccasionFilterList() {
           )
         }
         endMessage={
-          <div className="py-4 text-center text-gray-500">
-            No more Occasions
-          </div>
+          !error && (
+            <div className="py-4 text-center text-gray-500">
+              No more Occasions
+            </div>
+          )
         }
         scrollableTarget="occasion-scrollable"
       >
@@ -98,5 +103,6 @@ export default function OccasionFilterList() {
         )}
       </InfiniteScroll>
     </div>
+    </ListError>
   );
 }

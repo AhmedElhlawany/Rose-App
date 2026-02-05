@@ -17,7 +17,7 @@ export default function ProductCard() {
   return (
     <>
       {product?.products?.map((prod: Product) => (
-        <section key={prod._id} className={cn('w-full' , locale ==='ar' ? "pl-3" :"pl-3")}>
+        <section key={prod._id} className={cn('w-full' , locale ==='ar' ? "pr-3" :"pl-3")}>
           <figure className="flex flex-col gap-4">
             <Image
               src={prod.imgCover}

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslations } from 'use-intl';
 import { useFilters } from '../_hooks/use-filter';
 import { Button } from '@/components/ui/button';
@@ -12,10 +12,27 @@ export default function PriceFilter() {
   const t = useTranslations('product-filter');
 
   // Hook
-  const { filters, resetFilter } = useFilters({ price: '' });
+  const { filters, resetFilter } = useFilters({
+    'price[gte]': '',
+    'price[lte]': '',
+  });
+
+  // State
+  const [resetFlag, setResetFlag] = useState(false);
+
+  //  Functions
+  const handleResetPrice = () => {
+    resetFilter('price[gte]');
+    resetFilter('price[lte]');
+    setResetFlag(true);
+  };
+
+  const handleReset = () => {
+    setResetFlag(false);
+  };
 
   return (
-    <section className="w-full border-b-2 border-zinc-100 lg:w-[18.875rem] mb-8">
+    <section className="mb-8 w-full border-b-2 border-zinc-100 lg:w-[18.875rem]">
       <div className="flex w-full items-center justify-between pt-3">
         {/* Title */}
         <h2 className="text-lg font-semibold capitalize text-zinc-800 dark:text-zinc-50">
@@ -23,10 +40,12 @@ export default function PriceFilter() {
         </h2>
 
         {/* Rest Button */}
-        {filters.price && (
+        {(filters['price[gte]'] ||
+          filters['price[lte]'] ||
+          (filters['price[gte]'] && filters['price[lte]'])) && (
           <Button
-            onClick={() => resetFilter('occasion')}
-            className="w-fit gap-1 bg-transparent px-0 capitalize text-red-600 hover:bg-transparent dark:text-red-500"
+            onClick={handleResetPrice}
+            className="w-fit gap-1 bg-transparent px-0 capitalize text-red-600 hover:bg-transparent dark:bg-transparent dark:text-red-500 dark:hover:bg-transparent"
           >
             <X className="text-red-600 dark:text-red-500" />
             reset
@@ -37,7 +56,10 @@ export default function PriceFilter() {
       {/* Price Inputs */}
 
       <div className="mb-5">
-        <PriceFilterInputs />
+        <PriceFilterInputs
+          resetFlag={resetFlag}
+          handleReset={handleReset}
+        />
       </div>
     </section>
   );
