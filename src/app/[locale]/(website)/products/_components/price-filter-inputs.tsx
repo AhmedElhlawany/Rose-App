@@ -51,7 +51,7 @@ export default function PriceFilterInputs({
   }, [resetFlag, handleReset]);
 
   return (
-    <section className=" flex flex-col justify-center items-center sm:flex sm:flex-row w-full sm:items-center sm:justify-between gap-2 lg:w-[18.875rem]">
+    <section className="flex w-full flex-col items-center justify-center gap-2 sm:flex sm:flex-row sm:items-center sm:justify-between lg:w-[18.875rem]">
       <div className="w-full flex-1">
         {/* Label */}
         <Label className="font-inter text-sm font-medium">
