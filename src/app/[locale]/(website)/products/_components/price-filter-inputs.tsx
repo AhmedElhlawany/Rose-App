@@ -28,6 +28,7 @@ export default function PriceFilterInputs({
   const [from, setFrom] = useState(filters['price[gte]'] ?? '');
   const [to, setTo] = useState(filters['price[lte]'] ?? '');
 
+  // Variables
   const [debouncedFrom] = useDebounce(from, DEBOUNCE_TIME);
   const [debouncedTo] = useDebounce(to, DEBOUNCE_TIME);
 
@@ -52,11 +53,13 @@ export default function PriceFilterInputs({
 
   return (
     <section className="flex w-full flex-col items-center justify-center gap-2 sm:flex sm:flex-row sm:items-center sm:justify-between lg:w-[18.875rem]">
+      {/* Price From */}
       <div className="w-full flex-1">
         {/* Label */}
         <Label className="font-inter text-sm font-medium">
           {t('price-from')}
         </Label>
+
         {/* Input */}
         <Input
           value={from}
@@ -65,11 +68,14 @@ export default function PriceFilterInputs({
           className="w-full dark:text-zinc-50"
         />
       </div>
+
+      {/* Price to */}
       <div className="w-full flex-1">
         {/* Label */}
         <Label className="font-inter text-sm font-medium">
           {t('price-to')}
         </Label>
+
         {/* Input */}
         <Input
           type="number"

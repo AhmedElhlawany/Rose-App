@@ -11,14 +11,14 @@ export default function PriceFilter() {
   // Translations
   const t = useTranslations('product-filter');
 
+  // State
+  const [resetFlag, setResetFlag] = useState(false);
+
   // Hook
   const { filters, resetFilter } = useFilters({
     'price[gte]': '',
     'price[lte]': '',
   });
-
-  // State
-  const [resetFlag, setResetFlag] = useState(false);
 
   //  Functions
   const handleResetPrice = () => {
@@ -56,10 +56,7 @@ export default function PriceFilter() {
       {/* Price Inputs */}
 
       <div className="mb-5">
-        <PriceFilterInputs
-          resetFlag={resetFlag}
-          handleReset={handleReset}
-        />
+        <PriceFilterInputs resetFlag={resetFlag} handleReset={handleReset} />
       </div>
     </section>
   );
