@@ -7,7 +7,8 @@ import { useFilters } from './use-filter';
 export const UseProduct = () => {
   const { filters } = useFilters({
     occasion: null,
-    price: '',
+    'price[gte]': '',
+    'price[lte]': '',
   });
 
   const {
@@ -20,7 +21,8 @@ export const UseProduct = () => {
     queryFn: async () => {
       const payload = await getProduct({
         occasionId: filters.occasion ?? undefined,
-        price: filters.price ?? undefined,
+        priceFrom: filters['price[gte]'] || undefined,
+        priceTo: filters['price[lte]'] || undefined,
       });
       if ('error' in payload) {
         throw new Error(payload.error);

@@ -15,7 +15,7 @@ export default function PriceFilter() {
   const { filters, resetFilter } = useFilters({ price: '' });
 
   return (
-    <section className="w-full border-b-2 border-zinc-100 lg:w-[18.875rem]">
+    <section className="w-full border-b-2 border-zinc-100 lg:w-[18.875rem] mb-8">
       <div className="flex w-full items-center justify-between pt-3">
         {/* Title */}
         <h2 className="text-lg font-semibold capitalize text-zinc-800 dark:text-zinc-50">

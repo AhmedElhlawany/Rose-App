@@ -32,7 +32,7 @@ export default function OccasionFilterList() {
       ref={scrollableDivRef}
       id="occasion-scrollable"
       className={cn(
-        'scrollbar-thin w max-h-[242px] w-full overflow-y-auto transition-all duration-300',
+        'scrollbar-thin w max-h-[14.875rem] w-full overflow-y-auto transition-all duration-300',
         showscrollbar
           ? 'scrollbar-thumb-gray-400'
           : 'scrollbar-thumb-transparent',
@@ -76,9 +76,8 @@ export default function OccasionFilterList() {
                     'group relative h-auto w-auto overflow-hidden rounded-sm p-0',
                     'before:absolute before:inset-0',
                     active === item._id
-                      ? 'before:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(166,37,42,1))]'
-                      : 'before:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.5),#000000)]',
-                    'hover:before:bg-gradient-to-b hover:before:from-black/50 hover:before:to-transparent',
+                      ? 'before:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(166,37,42,0.8))]'
+                      : 'before:bg-black before:opacity-40 hover:before:bg-black/35 hover:before:bg-opacity-40',
                   )}
                 >
                   <Image
