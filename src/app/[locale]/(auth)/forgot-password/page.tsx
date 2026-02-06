@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-
 import ResetPasswordForm from './_components/reset-password-form';
 import ForgotPasswordForm from './_components/forgot-password-form';
 import VerifyPasswordForm from './_components/verify-password-form';

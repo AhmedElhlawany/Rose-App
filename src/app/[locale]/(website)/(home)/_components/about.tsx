@@ -59,7 +59,7 @@ export default function About() {
 
           <h3 className="mb-1 text-3xl font-bold text-maroon-700 dark:text-softpink-200">
             {t.rich('heading', {
-              span: (chunks) => (
+              span: (chunks: React.ReactNode) => (
                 <span className="text-softpink-500 dark:text-maroon-400">{chunks}</span>
               ),
             })}

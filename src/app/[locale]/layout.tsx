@@ -5,12 +5,12 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Inter, Sarabun, Tajawal, Zain } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
-export const sarabun = Sarabun({
+ const sarabun = Sarabun({
   subsets: ['latin', 'thai'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-sarabun',
 });
-export const tajawal = Tajawal({
+ const tajawal = Tajawal({
   subsets: ['arabic'],
   weight: ['300', '400', '500', '700', '800'],
   variable: '--font-tajawal',
