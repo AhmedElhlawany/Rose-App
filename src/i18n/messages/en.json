@@ -40,6 +40,16 @@
       }
     }
   },
+  "homepage": {
+    "header": {
+      "home": "home",
+      "products": "products",
+      "categories": "categories",
+      "occasions": "occasions",
+      "contact": "contact",
+      "about": "about"
+    }
+  },
   "about": {
     "title": "About",
     "heading": "Delivering the <span>Finest</span> Gift Boxes for Your <span>Special</span> Moments",
@@ -124,6 +134,16 @@
       "error": "Something went wrong",
       "notFound": "Product not found",
       "soldOut": "This product is sold out"
+    },
+    "filters": {
+      "category": "Category",
+      "rating": "Rating",
+      "reset": "Reset",
+      "resetAll": "Reset All",
+      "loadingCategories": "Loading categories...",
+      "loading-more": "Loading more...",
+      "failedToLoad": "Failed to load categories.",
+      "noMore": "No more categories"
     }
   },
   "auth": {
@@ -249,13 +269,19 @@
         "success": "Account created successfully",
         "error": "Failed to create account"
       }
-    }
+    },
+    "popover": {
+      "login": "login",
+      "register": "register"
+    },
+    "successfully-login": "successfully login"
   },
   "reviews": {
     "title": "Product Reviews",
     "general-rating": "General rating:",
     "ratings-count": "ratings",
     "noReviews": "No reviews yet. Be the first to review!",
+    "no-reviews": "No reviews yet. Be the first to review!",
     "error-loading": "Failed to load reviews.",
     "related-products": "Related Products"
   },
@@ -274,7 +300,8 @@
   "not-found": {
     "title": "Page not found",
     "description": "Oops! The page you are looking for does not exist.",
-    "button": "Go back home"
+    "button": "Go back home",
+    "back-dashboard": "Back to dashboard"
   },
   "price-number-currancy-base-0": "{price,number,currency-no-decimals}",
   "product-hot": "hot",
@@ -342,9 +369,9 @@
     "login": "Login",
     "register": "Register",
     "deliver to": "Deliver to",
-    "search": "What awesome gift are you looking for?",
-    "hello": "Hello"
+    "search": "What awesome gift are you looking for?"
   },
+
   "footer": {
     "title": "Rose E-Commerce App",
     "discover": "Discover our website",
@@ -360,9 +387,9 @@
     "copyright": "All rights reserved | 2025",
     "get": "Get",
     "discount": "20%",
-    "getDiscount": "Off Discount Coupon",
-    "subscribingWay": "By subscribing to our newsletter",
-    "emailPlaceholder": "Enter your email",
+    "get-discount": "Off Discount Coupon",
+    "subscribing-way": "By subscribing to our newsletter",
+    "email-placeholder": "Enter your email",
     "subscribe": "Subscribe"
   },
   "checkout": {
@@ -396,7 +423,92 @@
       "select-required": "Please select all required items"
     }
   },
-
+  "products": {
+    "add": {
+      "title": "Add a New Product",
+      "submit": "Add Product",
+      "submit-loading": "Adding...",
+      "fields": {
+        "title": "Title",
+        "title-placeholder": "Enter product title",
+        "description": "Description",
+        "description-placeholder": "Enter product description",
+        "price": "Price",
+        "price-placeholder": "Example: 5000",
+        "discount": "Discount",
+        "discount-placeholder": "Example: 5",
+        "price-after-discount": "Price after discount",
+        "price-after-discount-placeholder": "Example: 5",
+        "quantity": "Quantity",
+        "quantity-placeholder": "Example: 200",
+        "cover": "Product cover",
+        "gallery": "Product gallery",
+        "files-selected": "{count} files selected",
+        "upload": "Upload file",
+        "loading-options": "Loading options...",
+        "category": "Category",
+        "category-placeholder": "Select an option",
+        "occasion": "Occasion",
+        "occasion-placeholder": "Select an option"
+      },
+      "toast": {
+        "success": "Product added successfully",
+        "error": "Failed to add product"
+      },
+      "validation": {
+        "title-required": "Product title is required",
+        "description-required": "Product description is required",
+        "description-min": "Description must be at least 10 characters long",
+        "price-invalid": "Please enter a valid price",
+        "discount-invalid": "Please enter a valid discount (0-100)",
+        "quantity-invalid": "Product quantity is required",
+        "cover-required": "Product cover is required",
+        "cover-single": "Product cover must be a single image",
+        "gallery-required": "Product gallery images are required",
+        "images-only": "Only image files are allowed",
+        "category-required": "Please select a category for the product",
+        "occasion-required": "Please select an occasion for the product"
+      }
+    },
+    "update": {
+      "title": "Update Product: {title}",
+      "submit": "Update Product",
+      "submit-loading": "Updating...",
+      "fields": {
+        "title": "Title",
+        "title-placeholder": "Enter product title",
+        "description": "Description",
+        "description-placeholder": "Enter product description",
+        "price": "Price",
+        "price-placeholder": "Example: 5000",
+        "discount": "Discount",
+        "discount-placeholder": "Example: 5",
+        "price-after-discount": "Price after discount",
+        "price-after-discount-placeholder": "Example: 5",
+        "quantity": "Quantity",
+        "quantity-placeholder": "Example: 200",
+        "loading-options": "Loading options...",
+        "category": "Category",
+        "category-placeholder": "Select an option",
+        "occasion": "Occasion",
+        "occasion-placeholder": "Select an option"
+      },
+      "toast": {
+        "success": "Product updated successfully",
+        "error": "Failed to update product"
+      },
+      "validation": {
+        "title-required": "Product title is required",
+        "description-required": "Product description is required",
+        "description-min": "Description must be at least 10 characters long",
+        "price-invalid": "Please enter a valid price",
+        "discount-invalid": "Please enter a valid discount (0-100)",
+        "quantity-invalid": "Product quantity is required",
+        "category-required": "Please select a category for the product",
+        "occasion-required": "Please select an occasion for the product"
+      }
+    }
+  },
   "my-addresses": {
     "form-title": "Enter address details",
     "back-button": "Go back",
@@ -434,32 +546,134 @@
     "Cancel": "Cancel",
     "Confirm": "Confirm"
   },
+
+  "dashboard": {
+    "stats-overview": {
+      "total-products": "Total products",
+      "total-orders": "Total orders",
+      "total-categories": "Total categories",
+      "total-revenue": "Total revenue",
+      "egp": "EGP"
+    },
+    "all-categories": {
+      "title": "All Categories",
+      "products": "Products",
+      "empty": "No categories found"
+    },
+    "dashboard-occasion": {
+      "edit-occasion-name": "please enter occasion name",
+      "occasion-name": "name",
+      "occasion-min-name": "Minimum 3 characters",
+      "update-occasion-button": "Update Occasion",
+      "occasion-loading": "Loading...",
+      "button-occasion-add": "Add a new occasion",
+      "occasion-header": "all occasions",
+      "occasion-update": " update occasion",
+      "occasion-image": "View occasion image",
+      "occasion-add": "Add a New Occasion",
+      "occasion-image-size": "Image size must not exceed 5 MB.",
+      "occasion-add-image": "Occasion image",
+      "occasion-added": " Add occasion",
+      "upload-file": "Upload file",
+      "occasion-add-images": "Please upload an occasion image",
+      "occasion-added-successfully": "Occasion added successfully",
+      "occasion-add-failed": "Failed to add occasion",
+      "occasion-edit-successfully": "Occasion edited successfully",
+      "occasion-edit-failed": "Failed to edit occasion",
+      "occasion-delete-successfully": "Occasion deleted successfully",
+      "occasion-delete-failed": "Failed to delete occasion",
+      "empty-occasion-title": "No occasion found",
+      "empty-occasion-description": "No occasion match your search. Try resetting to see all."
+    },
+    "dashboard-categories": {
+      "empty-category-title": "No categories found",
+      "empty-category-description": "No categories match your search. Try resetting to see all."
+    },
+    "products": {
+      "add-a-new-product": "Add a new product",
+      "all-products": "All Products",
+      "name": "Name",
+      "price": "Price",
+      "quantity": "Stock",
+      "sold": "Sales",
+      "rating": "Ratings",
+      "no-products-found": "No products found",
+      "no-products-match": "No products match your search.",
+      "currency": "EGP",
+      "success-delete-message": "product deleted successfully",
+      "error-delete-message": "Failed to delete product"
+    },
+    "top-selling": {
+      "title": "Top Selling Products",
+      "sales": "Sales",
+      "currency": "EGP"
+    },
+    "low-stock": {
+      "title": "Low Stock Products",
+      "products": "products",
+      "currency": "EGP"
+    }
+  },
+
   "overview": "OverView",
   "categories": "Categories",
   "occasion": "Occasions",
-  "products": "Products",
+  "dashboard-products": "Products",
   "preview-website": "Preview Website",
   "my-account": "My account",
   "log-out": "Log-Out",
-  "change-password": {
-    "current-password": "Current Password",
-    "new-password": "New Password",
-    "confirm-password": "Confirm Password",
-    "change-password": "Change Password"
-  },
-  "profile":{
-    "Account-Settings": "Account Settings",
-    "My-Account": " My Account",
-    "Change-Password": "Change Password",
-    "Logout": "Logout",
-    "Upload-Photo": "Upload Photo",
-    "photo-info":" You can upload a .jpg, .png, or .gif photo with max size of5MB.",
-    "First-name": "First Name",
-    "Last-name": "Last Name",
-    "Email": "Email",
-    "Phone": "Phone",
-    "Gender": "Gender",
-    "delete-account": "Delete My Account",
-    "save-changes": "Save Changes"
+  "category-deleted-successfully": "Category deleted successfully",
+  "add-a-new-category": "Add a new category",
+  "all-categories": "All Categories",
+  "show-all": "Show All",
+  "category-updated-successfully": "Category Updated successfully",
+  "update-category": "Update Category",
+  "name-is-required": "Name is Required",
+  "image-is-required": "Image is Required",
+  "image-must-be-valid-type": "Image must be valid type",
+  "image": "Image",
+  "category-image-0": "Category-image",
+  "occassion-image": "Occassion-image",
+  "loading": "Loading....",
+  "view-category-image": "View Category Image",
+  "view-occassion-image": "View Occassion image",
+  "enter-category-name-0": "Enter Category Name",
+  "enter-occassion-name": "Enter Occassion Name",
+  "name": "Name",
+  "no-changes": "No Changes Happen!",
+  "category-created-successfully": "Category Created Successfully",
+  "add-a-new-category-0": "Add a New Category",
+  "upload-file": "Upload file",
+  "update-category-0": "Update Category:",
+  "cart-cleared-successfully": "Cart Cleared Successfully",
+  "cart": "Cart",
+  "cart-count": "{count, plural, =0 {No products} =1 {{n} product} other {{n} products}}",
+  "clear-cart": "Clear Cart",
+  "rating": "Rating",
+  "rateavg-number-number-base": "{rateAvg,number,number-base}",
+  "ratecount-number-number-base": "{rateCount,number,number-base}",
+  "count-plural-0-no-ratings-1-rating-other-ratings": "{count, plural, =0 {No ratings} =1 {# rating} other {# ratings}}",
+  "quantity-number-number-base": "{quantity,number,number-base}",
+  "productprice-number-number-base": "{productPrice,number,number-base}",
+  "egp": "EGP",
+  "product-removed-from-cart-successfully": "Product removed from cart successfully",
+  "remove": "Remove",
+  "product-added-to-cart-successfully": "Product Added To Cart Successfully",
+  "product-deleted-successfully": "Product Deleted Successfully",
+  "product-updated-successfully": "Product Updated Successfully",
+  "validation-invalid_number": "invalid_number",
+  "number-must-be-integer": "Number Must be Integer",
+  "number-must-be-positive": "Number Must be Positive",
+  "current-stock-now-is-quantity-available": "{Current stock now is {quantity} available}",
+  "continue-shopping": "Continue Shopping",
+  "emtycart": "Your cart is empty, wanna try shopping?",
+  "product-added-successfully-0": "Product Added Successfully",
+  "price-quantity": "{productPrice}",
+  "successfully-login": "Successfully Login",
+
+  "common-table": {
+    "delete": "delete",
+    "edit": "edit",
+    "actions": "actions"
   }
 }

@@ -40,11 +40,26 @@
       }
     }
   },
+  "homepage": {
+    "header": {
+      "home": "الرئيسية",
+      "products": "المنتجات",
+      "categories": "الفئات",
+      "occasions": "المناسبات",
+      "contact": "تواصل معنا",
+      "about": "من نحن"
+    }
+  },
   "about": {
     "title": "من نحن",
     "heading": "نقدّم <span>أجود</span> علب الهدايا من أجل <span>مناسباتك</span> المميزة",
     "description": "اجعل كل لحظة لا تُنسى مع صناديق الهدايا الفاخرة لدينا. كل صندوق مُختار بعناية ومُغلّف بشكلٍ أنيق، ويحتوي على منتجات مُنتقاة بعناية لتُثير الإعجاب. سواءً كانت هدية عيد ميلاد، أو حفل زفاف، أو حتى مجرد كلمة شكر، فإن صناديق هدايانا مُصممة لتترك انطباعًا دائمًا - لأن الهدايا المُدروسة تبدأ من هنا.",
     "discover": "اكتشف",
+    "images": {
+      "violet": "فتح هدية بنفسجية",
+      "orange": "هدية برتقالية",
+      "blue": "هدية زرقاء مع بالونات"
+    },
     "featuresLabel": "مميزات الخدمة",
     "services": [
       "أسعار تنافسية وتجربة تسوق سهلة",
@@ -119,6 +134,28 @@
       "error": "حدث خطأ ما",
       "notFound": "المنتج غير موجود",
       "soldOut": "المنتج غير متوفر حالياً"
+    },
+     "filters": {
+      "category": "الفئة",
+      "rating": "التقييم",
+      "reset": "إعادة تعيين",
+      "resetAll": "إعادة تعيين الكل",
+      "loadingCategories": "جاري تحميل الفئات...",
+      "loading-more": "جاري تحميل المزيد...",
+      "failedToLoad": "فشل تحميل الفئات.",
+      "noMore": "لا توجد فئات أخرى",
+      "items": {
+        "flowers": "زهور",
+        "gifts": "هدايا",
+        "cards": "بطاقات",
+        "jewellery": "مجوهرات",
+        "perfumes": "عطور",
+        "watches": "ساعات",
+        "chocolate": "شوكولاتة",
+        "cakes": "كيك",
+        "plants": "نباتات",
+        "candles-diffusers": "شموع ومعطرات"
+      }
     }
   },
   "auth": {
@@ -244,12 +281,18 @@
       "email": "البريد الالكتروني",
       "login-error": "حدث خطأ أثناء تسجيل الدخول . حاول مرة أخرى.",
       "remember me": "تذكرني"
-    }
+    },
+    "popover": {
+      "login": "تسجيل الدخول",
+      "register": "إنشاء حساب"
+    },
+    "successfully-login": "تم تسجيل الدخول بنجاح"
   },
   "reviews": {
     "title": "تقييمات المنتج",
     "general-rating": "التقييم العام:",
     "ratings-count": "تقييم",
+    "noReviews": "لا توجد تقييمات بعد. كن أول من يقيّم!",
     "no-reviews": "لا توجد تقييمات بعد. كن أول من يقيّم!",
     "error-loading": "فشل تحميل التقييمات.",
     "related-products": "منتجات ذات صلة"
@@ -269,7 +312,8 @@
   "not-found": {
     "title": "لا توجد صفحة",
     "description": "عذرًا! الصفحة التي تبحث عنها غير موجودة.",
-    "button": "العودة إلى الصفحة الرئيسية"
+    "button": "العودة إلى الصفحة الرئيسية",
+    "back-dashboard": "العودة إلى لوحة التحكم"
   },
   "price-number-currancy-base-0": "{price,number,currency-no-decimals}",
   "product-hot": "تريند",
@@ -337,9 +381,9 @@
     "login": "تسجيل الدخول",
     "register": "تسجيل حساب جديد",
     "deliver to": "توصيل إلى ",
-    "search": "ما هي الهدية المميزة التي تبحث عنها؟",
-    "hello": "مرحبا"
+    "search": "ما هي الهدية المميزة التي تبحث عنها؟"
   },
+
   "footer": {
     "title": "تطبيق روز",
     "discover": "اكتشف موقعنا",
@@ -354,10 +398,10 @@
     "faqs": "الاسئلة الشائعة",
     "copyright": "جميع الحقوق محفوظة | 2025",
     "get": "احصل على",
-    "getDiscount": " كوبون خصم",
+    "get-discount": " كوبون خصم",
     "discount": "20%",
-    "subscribingWay": "اشترك في مجلتنا",
-    "emailPlaceholder": "اكتب بريدك الإلكتروني",
+    "subscribing-way": "اشترك في مجلتنا",
+    "email-placeholder": "اكتب بريدك الإلكتروني",
     "subscribe": "اشترك"
   },
   "checkout": {
@@ -390,9 +434,93 @@
       "payment-loading": "جاري التحميل...",
       "select-required": "يرجى اختيار جميع العناصر المطلوبة"
     }
-
-
-},
+  },
+  "products": {
+    "add": {
+      "title": "إضافة منتج جديد",
+      "submit": "إضافة منتج",
+      "submit-loading": "جاري الإضافة...",
+      "fields": {
+        "title": "العنوان",
+        "title-placeholder": "أدخل عنوان المنتج",
+        "description": "الوصف",
+        "description-placeholder": "أدخل وصف المنتج",
+        "price": "السعر",
+        "price-placeholder": "مثال: 5000",
+        "discount": "الخصم",
+        "discount-placeholder": "مثال: 5",
+        "price-after-discount": "السعر بعد الخصم",
+        "price-after-discount-placeholder": "مثال: 5",
+        "quantity": "الكمية",
+        "quantity-placeholder": "مثال: 200",
+        "cover": "صورة غلاف المنتج",
+        "gallery": "معرض المنتج",
+        "files-selected": "تم اختيار {count} ملف",
+        "upload": "رفع ملف",
+        "loading-options": "جارٍ تحميل الخيارات...",
+        "category": "الفئة",
+        "category-placeholder": "اختر خياراً",
+        "occasion": "المناسبة",
+        "occasion-placeholder": "اختر خياراً"
+      },
+      "toast": {
+        "success": "تمت إضافة المنتج بنجاح",
+        "error": "فشل إضافة المنتج"
+      },
+      "validation": {
+        "title-required": "عنوان المنتج مطلوب",
+        "description-required": "وصف المنتج مطلوب",
+        "description-min": "يجب أن يكون الوصف 10 أحرف على الأقل",
+        "price-invalid": "يرجى إدخال سعر صحيح",
+        "discount-invalid": "يرجى إدخال خصم صحيح (0-100)",
+        "quantity-invalid": "كمية المنتج مطلوبة",
+        "cover-required": "صورة الغلاف مطلوبة",
+        "cover-single": "يجب أن تكون صورة الغلاف صورة واحدة فقط",
+        "gallery-required": "صور معرض المنتج مطلوبة",
+        "images-only": "يُسمح بملفات الصور فقط",
+        "category-required": "يرجى اختيار فئة للمنتج",
+        "occasion-required": "يرجى اختيار مناسبة للمنتج"
+      }
+    },
+    "update": {
+      "title": "تحديث المنتج: {title}",
+      "submit": "تحديث المنتج",
+      "submit-loading": "جاري التحديث...",
+      "fields": {
+        "title": "العنوان",
+        "title-placeholder": "أدخل عنوان المنتج",
+        "description": "الوصف",
+        "description-placeholder": "أدخل وصف المنتج",
+        "price": "السعر",
+        "price-placeholder": "مثال: 5000",
+        "discount": "الخصم",
+        "discount-placeholder": "مثال: 5",
+        "price-after-discount": "السعر بعد الخصم",
+        "price-after-discount-placeholder": "مثال: 5",
+        "quantity": "الكمية",
+        "quantity-placeholder": "مثال: 200",
+        "loading-options": "جارٍ تحميل الخيارات...",
+        "category": "الفئة",
+        "category-placeholder": "اختر خياراً",
+        "occasion": "المناسبة",
+        "occasion-placeholder": "اختر خياراً"
+      },
+      "toast": {
+        "success": "تم تحديث المنتج بنجاح",
+        "error": "فشل تحديث المنتج"
+      },
+      "validation": {
+        "title-required": "عنوان المنتج مطلوب",
+        "description-required": "وصف المنتج مطلوب",
+        "description-min": "يجب أن يكون الوصف 10 أحرف على الأقل",
+        "price-invalid": "يرجى إدخال سعر صحيح",
+        "discount-invalid": "يرجى إدخال خصم صحيح (0-100)",
+        "quantity-invalid": "كمية المنتج مطلوبة",
+        "category-required": "يرجى اختيار فئة للمنتج",
+        "occasion-required": "يرجى اختيار مناسبة للمنتج"
+      }
+    }
+  },
 
   "my-addresses": {
     "form-title": "أدخل تفاصيل العنوان",
@@ -431,34 +559,131 @@
     "Cancel": "الغاء",
     "Confirm": "تأكيد"
   },
+
+  "dashboard": {
+    "stats-overview": {
+      "total-products": "إجمالي المنتجات",
+      "total-orders": "إجمالي الطلبات",
+      "total-categories": "إجمالي الفئات",
+      "total-revenue": "إجمالي الإيرادات",
+      "egp": "ج.م"
+    },
+    "all-categories": {
+      "title": "جميع الفئات",
+      "products": "منتج",
+      "empty": "لا توجد فئات"
+    },
+    "dashboard-occasion": {
+      "edit-occasion-name": "من فضلك أدخل اسم المناسبة",
+      "occasion-name": "الاسم",
+      "occasion-min-name": "الحد الأدنى 3 حروف",
+      "update-occasion-button": "تحديث المناسبة",
+      "occasion-loading": "جارٍ التحميل...",
+      "button-occasion-add": "إضافة مناسبة جديدة",
+      "occasion-header": "كل المناسبات",
+      "occasion-update": "تحديث المناسبة",
+      "occasion-image": "عرض صورة المناسبة",
+      "occasion-add": "إضافة مناسبة جديدة",
+      "occasion-image-size": "حجم الصورة يجب ألا يتجاوز 5 ميجابايت.",
+      "occasion-add-image": "صورة المناسبة",
+      "occasion-added": "إضافة مناسبة",
+      "upload-file": "رفع ملف",
+      "occasion-add-images": "من فضلك ارفع صورة المناسبة",
+      "occasion-added-successfully": "تمت إضافة المناسبة بنجاح",
+      "occasion-add-failed": "فشل في إضافة المناسبة",
+      "occasion-edit-successfully": "تم تعديل المناسبة بنجاح",
+      "occasion-edit-failed": "فشل في تعديل المناسبة",
+      "occasion-delete-successfully": "تم حذف المناسبة بنجاح",
+      "occasion-delete-failed": "فشل في حذف المناسبة",
+      "empty-occasion-title": "لم يتم العثور على أي مناسبات",
+      "empty-occasion-description": "لا توجد مناسبات تطابق عملية البحث. حاول إعادة التعيين لعرض جميع المناسبات."
+    },
+    "dashboard-categories": {
+      "empty-category-title": "لم يتم العثور على أي فئات",
+      "empty-category-description": "لا توجد فئات تطابق عملية البحث. حاول إعادة التعيين لعرض جميع الفئات."
+    },
+    "products": {
+      "add-a-new-product": "إضافة منتج جديد",
+      "all-products": "جميع المنتجات",
+      "name": "الاسم",
+      "price": "السعر",
+      "quantity": "المخزون",
+      "sold": "المبيعات",
+      "rating": "التقييمات",
+      "no-products-found": "لا توجد منتجات",
+      "no-products-match": "لا توجد منتجات تطابق بحثك.",
+      "currency": "ج.م"
+    },
+    "top-selling": {
+      "title": "المنتجات الأكثر مبيعاً",
+      "sales": "مبيع",
+      "currency": "ج.م"
+    },
+    "low-stock": {
+      "title": "المنتجات منخفضة المخزون",
+      "products": "منتج",
+      "currency": "ج.م"
+    }
+  },
+
   "overview": "ملخص",
   "categories": "الاقسام",
   "occasion": "المناسبات",
-  "products": "المنتجات",
+  "dashboard-products": "المنتجات",
   "preview-website": "الذهاب للموقع",
   "my-account": "حسابي",
   "log-out": "تسجيل خروج",
-  
-  "change-password": {
-    "current-password": "كلمة المرور الحالية",
-    "new-password": "كلمة المرور الجديدة",
-    "confirm-password": "تأكيد كلمة المرور الجديدة",
-    "change-password": "تغيير كلمة المرور"
-  },
-  "profile":{
-    "Account-Settings": "إعدادات الحساب",
-    "My-Account": " حسابي",
-    "Change-Password": "تغيير كلمة المرور",
-    "Logout": "تسجيل الخروج",
-    "Upload-Photo": "رفع صورة",
-    "photo-info":" يمكنك رفع صورة بصيغة .jpg, .png, أو .gif بحجم لا يزيد عن 5 ميجابايت.",
-    "First-name": "الاسم الأول",
-    "Last-name": "الاسم الأخير",
-    "Email": "البريد الإلكتروني",
-    "Phone": "رقم الهاتف",
-    "Gender": "الجنس",
-    "delete-account": "حذف حسابي",
-    "save-changes": "حفظ التغييرات"
+  "category-deleted-successfully": "تم حذف الفئة بنجاح",
+  "add-a-new-category": "أضافة فئة جديدة",
+  "all-categories": "جميع الفئات",
+  "show-all": "إظهار الكل",
+  "category-updated-successfully": "تم تحديث الفئة بنجاح",
+  "update-category": "تحديث الفئة",
+  "name-is-required": "الاسم مطلوب",
+  "image-is-required": "الصورة مطلوبة",
+  "image-must-be-valid-type": "يجب أن تكون الصورة من النوع المسموح به",
+  "image": "صورة",
+  "category-image-0": "صورة الفئة",
+  "occassion-image": "صورة المناسبة",
+  "loading": "....تحميل",
+  "view-category-image": "عرض صورة الفئة",
+  "view-occassion-image": "شاهد صورة المناسبة",
+  "enter-category-name-0": "أدخل اسم الفئة",
+  "enter-occassion-name": "أدخل اسم المناسبة",
+  "name": "الاسم",
+  "no-changes": "!لم تحدث أي تغييرات",
+  "category-created-successfully": "تم إنشاء الفئة بنجاح",
+  "add-a-new-category-0": "إضافة فئة جديدة",
+  "upload-file": "تحميل الملف",
+  "update-category-0": " :تحديث الفئة",
+  "cart-cleared-successfully": "تم مسح العربة بنجاح",
+  "cart": "عربة التسوق",
+  "cart-count": "{count, plural,\n  =0 {لا توجد منتجات}\n  =1 {منتج واحد}\n  =2 {منتجان}\n  few {{n} منتجات}\n  many {{n} منتجًا}\n  other {{n} منتج}\n}\n",
+  "clear-cart": "حذف السلة",
+  "rating": "التقييم",
+  "rateavg-number-number-base": "{rateAvg,number,number-base}",
+  "ratecount-number-number-base": "{rateCount,number,number-base}",
+  "count-plural-0-no-ratings-1-rating-other-ratings": "{count, plural,\n  =0 {لا توجد تقييمات}\n  =1 {تقييم واحد}\n  =2 {تقييمان}\n  few {# تقييمات}\n  many {# تقييمًا}\n  other {# تقييم}\n}\n",
+  "productprice-number-number-base": "{productPrice,number,number-base}",
+  "egp": "جنية مصري",
+  "product-removed-from-cart-successfully": "تمت إزالة المنتج من سلة التسوق بنجاح",
+  "remove": "حذف",
+  "product-added-to-cart-successfully": "تمت إضافة المنتج إلى سلة التسوق بنجاح",
+  "product-deleted-successfully": "تم حذف المنتج بنجاح",
+  "product-updated-successfully": "تم تحديث المنتج بنجاح",
+  "validation-invalid_number": "رقم غير صالح",
+  "number-must-be-integer": "يجب أن يكون الرقم عددًا صحيحًا",
+  "number-must-be-positive": "يجب أن يكون الرقم موجبًا",
+  "current-stock-now-is-quantity-available": "{المخزون الحالي الآن هو {الكمية} المتوفرة}",
+  "continue-shopping": "مواصلة التسوق",
+  "emtycart": "سلة التسوق الخاصة بك فارغة، هل تريد تجربة التسوق؟",
+  "product-added-successfully-0": "تمت إضافة المنتج بنجاح",
+  "price-quantity": "{productPrice}",
+  "quantity-number-number-base": "{quantity,number,number-base}",
+  "successfully-login": "تم تسجيل الدخول بنجاح",
+  "common-table": {
+    "delete": "حذف",
+    "edit": "تعديل",
+    "actions": "إجراءات"
   }
-  }
-
+}

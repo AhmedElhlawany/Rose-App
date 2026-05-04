@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { ShoppingCart, Star, Package, HeartPlus } from 'lucide-react';
-import type { Product } from '@/lib/types/product';
+import type { Product } from '@/lib/types/products/product';
 import { cn } from '@/lib/utility/tailwind-merge';
 import { Button } from '@/components/ui/button';
 import { FaSpinner } from 'react-icons/fa';
-import { useAddToCart } from '../_hooks/use-add-to-cart';
+import { useAddToCart } from '@/lib/hooks/cart/use-add-to-cart';
 
 export default function ProductDetailsUpper({ product }: { product: Product }) {
   // Translation
@@ -18,7 +18,7 @@ export default function ProductDetailsUpper({ product }: { product: Product }) {
   const [isWishlisted, setIsWishlisted] = useState(product.isInWishlist);
 
   // Hooks
-  const { addToCart, isPending: isAddingToCart } = useAddToCart();
+  const { onAddToCard, isPending: isAddingToCart } = useAddToCart();
 
   // Variables => This is a flexible choice
   const gallery = [product.imgCover, ...product.images].filter(Boolean);
@@ -44,6 +44,7 @@ export default function ProductDetailsUpper({ product }: { product: Product }) {
         <div className="flex justify-center gap-3">
           {gallery.map((url, idx) => (
             <button
+              aria-label={`view image ${idx + 1}`}
               key={idx}
               onClick={() => setSelectedIndex(idx)}
               className={cn(
@@ -132,7 +133,7 @@ export default function ProductDetailsUpper({ product }: { product: Product }) {
             variant="primary"
             className="h-12 flex-1 bg-maroon-600 transition-colors hover:bg-maroon-700 disabled:cursor-not-allowed disabled:bg-zinc-300 disabled:text-zinc-500 dark:bg-softpink-300 dark:hover:bg-softpink-400"
             disabled={!inStock || isAddingToCart}
-            onClick={() => addToCart({ product: product._id, quantity: 1 })}
+            onClick={() => onAddToCard({ productId: product._id, quantity: 1 })}
           >
             {isAddingToCart ? (
               <FaSpinner className="size-6 animate-spin" />
