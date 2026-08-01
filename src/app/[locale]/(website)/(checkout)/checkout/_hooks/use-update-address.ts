@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { useRouter } from "@/i18n/navigation";
@@ -9,6 +9,8 @@ import { AddressFormSchema } from "@/lib/schema/address.schema";
 export const useUpdateAddress = () => {
   // Translations
   const t = useTranslations('my-addresses');
+
+    const queryClient = useQueryClient();
 
   const router = useRouter();
   // Mutation
@@ -24,6 +26,9 @@ export const useUpdateAddress = () => {
     onSuccess: () => {
       toast.success(t('success-update-message'));
       router.refresh();
+      queryClient.invalidateQueries({
+        queryKey: ["address"],
+      });
     },
     onError: (error: Error) => {
       toast.error(t('error-update-message', { message: error.message }));

@@ -1,39 +1,53 @@
 'use client';
+
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Star, X } from 'lucide-react';
 import CartAction from './cart-action';
 import { CartItemResponse, CartItemUI } from '@/lib/types/cart';
 import { cn } from '@/lib/utility/tailwind-merge';
-//Types
-type cartItemProp = {
+
+type CartItemProp = {
   cartInfo: CartItemResponse | CartItemUI;
   className?: string;
 };
-export default function CartItem({
-  cartInfo: {
-    product: {
-      rateAvg,
-      rateCount,
-      imgCover,
-      _id,
-      title,
-      quantity: productQuantity,
-    },
-    quantity,
-    price,
-  },
-  className,
-}: cartItemProp) {
-  // Translations
+
+export default function CartItem({ cartInfo, className }: CartItemProp) {
   const t = useTranslations();
 
-  // Variables
+  // Prevent crash if backend returns product: null
+  if (!cartInfo.product) {
+    console.error('Invalid cart item:', cartInfo);
+
+    return (
+      <div
+        className={cn(
+          'flex items-center justify-between py-4 text-red-500',
+          className,
+        )}
+      >
+        <p>This product is no longer available.</p>
+      </div>
+    );
+  }
+
+  const {
+    rateAvg,
+    rateCount,
+    imgCover,
+    _id,
+    title,
+    quantity: productQuantity,
+  } = cartInfo.product;
+
+  const { quantity, price } = cartInfo;
+
   const safeRateAvg = rateAvg ?? 0;
   const safeRateCount = rateCount ?? 0;
 
   const productRating =
-    safeRateCount > 0 ? String(safeRateAvg / safeRateCount) : '0';
+    safeRateCount > 0 ? (safeRateAvg / safeRateCount).toFixed(1) : '0';
+
   return (
     <div
       className={cn(
@@ -42,49 +56,55 @@ export default function CartItem({
       )}
     >
       <div className="cart-info flex flex-col gap-3 md:flex-row">
-        <div className="imge w-full overflow-hidden rounded-md md:w-auto">
+        <div className="w-full overflow-hidden rounded-md md:w-auto">
           <Image
             className="h-auto w-full object-cover md:w-[150px]"
             src={imgCover!}
-            alt="title"
+            alt={title}
             width={150}
-            height={0}
+            height={150}
           />
         </div>
-        <div className="details flex flex-col justify-between">
-          <div className="text-info">
-            {/* title */}
+
+        <div className="flex flex-col justify-between">
+          <div>
             <h1 className="text-lg font-semibold capitalize">{title}</h1>
-            {/* rating-info */}
-            <div className="rating-info my-3 flex h-14 gap-2">
-              <Star fill="orange" stroke="orange" />
+
+            <div className="my-3 flex items-center gap-2">
+              <Star fill="orange" stroke="orange" size={18} />
+
               <span>
-                {t('rating')}:
-                {t('rateavg-number-number-base', { rateAvg: safeRateAvg })}/
+                {t('rating')}:{' '}
+                {t('rateavg-number-number-base', {
+                  rateAvg: safeRateAvg,
+                })}
+                /
                 {t('ratecount-number-number-base', {
                   rateCount: safeRateCount,
                 })}
               </span>
-              <span className="text-nowrap font-medium text-blue-600">
-                {t('count-plural-0-no-ratings-1-rating-other-ratings', {
-                  count: productRating,
-                })}
-              </span>
+
+              <span className="font-medium text-blue-600">{productRating}</span>
             </div>
           </div>
-          <div className="product-price-count mt-2 md:mt-0">
+
+          <div className="mt-2 md:mt-0">
             <p className="inline-flex items-baseline gap-1 whitespace-nowrap">
               <span className="flex items-center font-bold text-maroon-600 dark:text-maroon-50">
-                {/* quantity in cart */}
-                (<X size={16} className="inline" />
-                {t('quantity-number-number-base', { quantity })} )
+                (
+                <X size={16} className="inline" />
+                {t('quantity-number-number-base', {
+                  quantity,
+                })}
+                )
               </span>
-              {/* total price of item in cart */}
+
               <span className="text-2xl font-bold text-zinc-800 dark:text-zinc-200">
                 {t('productprice-number-number-base', {
                   productPrice: quantity * price,
                 })}
               </span>
+
               <span className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 {t('egp')}
               </span>
@@ -92,7 +112,7 @@ export default function CartItem({
           </div>
         </div>
       </div>
-      {/* update-remove-buttons */}
+
       <CartAction
         productId={_id}
         productQuantity={productQuantity}

@@ -1,15 +1,14 @@
 import { toast } from "sonner";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { addAddressAction } from "../_action/add-address.action";
 import { AddressFormSchema } from "@/lib/schema/address.schema";
 
-
 export const useAddAddress = () => {
-  // Translations
-  const t = useTranslations('my-addresses');
+  const t = useTranslations("my-addresses");
 
-  // Mutation
+  const queryClient = useQueryClient();
+
   const { isPending, error, mutate } = useMutation({
     mutationFn: async (data: AddressFormSchema) => {
       const res = await addAddressAction(data);
@@ -17,14 +16,21 @@ export const useAddAddress = () => {
       if ("error" in res) {
         throw new Error(res.error);
       }
+
+      return res;
     },
 
     onSuccess: () => {
-      toast.success(t('success-message'));
+      toast.success(t("success-message"));
+
+      queryClient.invalidateQueries({
+        queryKey: ["address"],
+      });
     },
+
     onError: (error: Error) => {
-      toast.error(t('error-message', { message: error.message }));
-    }
+      toast.error(t("error-message", { message: error.message }));
+    },
   });
 
   return {
@@ -32,4 +38,4 @@ export const useAddAddress = () => {
     isPending,
     error,
   };
-}
+};

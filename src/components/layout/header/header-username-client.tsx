@@ -9,6 +9,7 @@ import {
 import { ChevronDown } from 'lucide-react';
 import { User } from '@/lib/types/auth';
 import LoginPopover from '@/app/[locale]/(auth)/login/_components/login-popover';
+import { signOut } from 'next-auth/react';
 
 interface HeaderUsernameClientProps {
   user: User | null;
@@ -29,7 +30,17 @@ export default function HeaderUsernameClient({ user }: HeaderUsernameClientProps
           <DropdownMenuContent align="end">
             <DropdownMenuItem>Profile</DropdownMenuItem>
             <DropdownMenuItem>Orders</DropdownMenuItem>
-            <DropdownMenuItem>Logout</DropdownMenuItem>
+            <DropdownMenuItem
+              asChild
+              className="text-red-500 focus:text-red-700 dark:text-red-400 dark:focus:text-red-500"
+            >
+              <button
+                className="w-full text-left"
+                onClick={() => signOut({ callbackUrl: '/' })}
+              >
+                Logout
+              </button>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (

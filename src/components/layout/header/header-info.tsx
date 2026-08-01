@@ -56,9 +56,9 @@ export default function HeaderInfo({ user }: HeaderInfoProps) {
           </Badge>
         </button>
 
-        <button className="relative hover:text-red-800">
+        {/* <button className="relative hover:text-red-800"> */}
           <NotificationsList />
-        </button>
+        {/* </button> */}
       </div>
 
       <div className="hidden lg:flex">
